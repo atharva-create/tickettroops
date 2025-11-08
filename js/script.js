@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe all sections and cards
-    const elementsToAnimate = document.querySelectorAll('.service-card, .client-card, .corporate-card, .feature-card');
+    const elementsToAnimate = document.querySelectorAll('.service-card, .client-card, .corporate-card, .feature-card, .mission-card, .timeline-item, .expertise-card, .value-item');
     elementsToAnimate.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -230,12 +230,47 @@ document.addEventListener('DOMContentLoaded', function() {
             icon.style.transform = 'scale(1.1) rotate(360deg)';
             icon.style.transition = 'transform 0.5s ease';
         });
-        
+
         card.addEventListener('mouseleave', function() {
             const icon = this.querySelector('.feature-icon');
             icon.style.transform = 'scale(1) rotate(0)';
         });
     });
+
+    // Add staggered animation to timeline items
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.2}s`;
+    });
+
+    // Add staggered animation to value items
+    const valueItems = document.querySelectorAll('.value-item');
+    valueItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+    });
+
+    // Add counter animation for About section when scrolled into view
+    const aboutSection = document.querySelector('.about-us');
+    if (aboutSection) {
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Trigger any special animations for about section
+                    const storyIcon = document.querySelector('.story-icon');
+                    if (storyIcon) {
+                        setTimeout(() => {
+                            storyIcon.style.transform = 'scale(1.1)';
+                            setTimeout(() => {
+                                storyIcon.style.transform = 'scale(1)';
+                            }, 300);
+                        }, 200);
+                    }
+                }
+            });
+        }, { threshold: 0.2 });
+
+        aboutObserver.observe(aboutSection);
+    }
 
     // Initialize any third-party integrations here (e.g., Google Maps, chat widget, etc.)
     
