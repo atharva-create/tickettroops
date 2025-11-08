@@ -491,6 +491,69 @@ body {
     background: var(--white);
 }
 
+/* Event Tabs */
+.event-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    background: var(--white);
+    color: var(--dark-purple);
+    border: 2px solid var(--dark-purple);
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tab-button i {
+    font-size: 20px;
+}
+
+.tab-button:hover {
+    background: var(--primary-purple);
+    color: var(--white);
+    border-color: var(--primary-purple);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 58, 140, 0.3);
+}
+
+.tab-button.active {
+    background: var(--dark-purple);
+    color: var(--gold);
+    border-color: var(--dark-purple);
+    box-shadow: 0 5px 15px rgba(46, 33, 87, 0.4);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .events-table {
     margin-top: 50px;
     overflow-x: auto;
@@ -571,6 +634,52 @@ body {
 .feature-card p {
     line-height: 1.6;
     opacity: 0.9;
+}
+
+.trusted-clients {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.trusted-clients .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.trusted-clients .client-logo {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+}
+
+.trusted-clients .client-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-color: var(--gold);
+}
+
+.trusted-clients .client-logo img {
+    max-width: 100%;
+    max-height: 70px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.trusted-clients .client-logo:hover img {
+    filter: grayscale(0%);
 }
 
 .contact {

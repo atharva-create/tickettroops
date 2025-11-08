@@ -100,36 +100,6 @@
         </div>
     </section>
 
-    <!-- Trusted Clients Section -->
-    <section class="clients">
-        <div class="container">
-            <h2 class="section-title">OUR TRUSTED CLIENTS</h2>
-            <div class="clients-grid">
-                <div class="client-card">
-                    <div class="client-logo"><img src="images/au_small_finance_bank.png" alt="AU Small Finance Bank"></div>
-                </div>
-                <div class="client-card">
-                    <div class="client-logo"><img src="images/cipla.png" alt="Cipla"></div>
-                </div>
-                <div class="client-card">
-                    <div class="client-logo"><img src="images/tata_aig.png" alt="TATA AIG Insurance"></div>
-                </div>
-                <div class="client-card">
-                    <div class="client-logo"><img src="images/future_generali.png" alt="Future Generali"></div>
-                </div>
-                <div class="client-card">
-                    <div class="client-logo"><img src="images/sbi_life.png" alt="SBI Life"></div>
-                </div>
-                <div class="client-card">
-                    <div class="client-logo"><img src="images/icici_prudential.png" alt="ICICI Prudential"></div>
-                </div>
-                <div class="client-card">
-                    <div class="client-logo"><img src="images/kotak_life.png" alt="Kotak Life Insurance"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Corporate Engagement Events -->
     <section class="corporate" id="corporate">
         <div class="container">
@@ -184,8 +154,22 @@
     <!-- Upcoming Events -->
     <section class="upcoming-events" id="events">
         <div class="container">
-            <h2 class="section-title gold">UPCOMING SPORTING SPECTACLES 2025-26</h2>
-            <div class="events-table">
+            <h2 class="section-title gold">UPCOMING EVENTS 2025-26</h2>
+
+            <!-- Event Tabs -->
+            <div class="event-tabs">
+                <button class="tab-button active" data-tab="sports">
+                    <i class="fas fa-trophy"></i>
+                    Sporting Spectacles
+                </button>
+                <button class="tab-button" data-tab="entertainment">
+                    <i class="fas fa-music"></i>
+                    Entertainment Events
+                </button>
+            </div>
+
+            <!-- Sports Events Table -->
+            <div class="events-table tab-content active" id="sports-tab">
                 <table>
                     <thead>
                         <tr>
@@ -258,6 +242,81 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- Entertainment Events Table -->
+            <div class="events-table tab-content" id="entertainment-tab">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>EVENT / ARTIST</th>
+                            <th>LOCATION</th>
+                            <th>MONTH</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Travis Scott - Circus Maximus Tour</td>
+                            <td>Delhi & Mumbai - India</td>
+                            <td>Oct 2025 & Nov 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Enrique Iglesias Live</td>
+                            <td>Mumbai - India</td>
+                            <td>Oct 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Akon India Tour</td>
+                            <td>Mumbai - India</td>
+                            <td>Nov 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Post Malone Concert</td>
+                            <td>Guwahati - India</td>
+                            <td>Nov 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Sunburn 2025 - Ft. David Guetta</td>
+                            <td>Mumbai</td>
+                            <td>Dec 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Lionel Messi G.O.A.T. Tour</td>
+                            <td>Mumbai / Delhi / Kolkata</td>
+                            <td>Dec 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Lollapalooza India 2026 - Ft. Linkin Park</td>
+                            <td>Mumbai - India</td>
+                            <td>Jan 2026</td>
+                        </tr>
+                        <tr>
+                            <td>Zomaland Season 6</td>
+                            <td>Multiple Cities - India</td>
+                            <td>Feb 2026 & Mar 2026</td>
+                        </tr>
+                        <tr>
+                            <td>Coldplay World Tour (Expected Leg)</td>
+                            <td>Europe / North America</td>
+                            <td>Mar 2026</td>
+                        </tr>
+                        <tr>
+                            <td>Taylor Swift - The Eras Tour (Expected Leg)</td>
+                            <td>Paris, Milan, Madrid</td>
+                            <td>Apr 2026</td>
+                        </tr>
+                        <tr>
+                            <td>Tomorrowland Winter</td>
+                            <td>French Alps, France</td>
+                            <td>Mar 2026</td>
+                        </tr>
+                        <tr>
+                            <td>Tomorrowland Festival (Expected Leg)</td>
+                            <td>Boom - Belgium</td>
+                            <td>Jul 2026</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
@@ -312,6 +371,36 @@
         </div>
     </section>
 
+    <!-- Trusted Clients -->
+    <section class="trusted-clients">
+        <div class="container">
+            <h2 class="section-title">TRUSTED BY LEADING ORGANISATIONS</h2>
+            <div class="clients-grid">
+                <div class="client-logo">
+                    <img src="images/au_small_finance_bank.png" alt="AU Small Finance Bank">
+                </div>
+                <div class="client-logo">
+                    <img src="images/cipla.png" alt="Cipla">
+                </div>
+                <div class="client-logo">
+                    <img src="images/future_generali.png" alt="Future Generali">
+                </div>
+                <div class="client-logo">
+                    <img src="images/icici_prudential.png" alt="ICICI Prudential">
+                </div>
+                <div class="client-logo">
+                    <img src="images/kotak_life.png" alt="Kotak Life">
+                </div>
+                <div class="client-logo">
+                    <img src="images/sbi_life.png" alt="SBI Life">
+                </div>
+                <div class="client-logo">
+                    <img src="images/tata_aig.png" alt="Tata AIG">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -319,19 +408,19 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Ready to Experience the Extraordinary?</h3>
-                    <p>Contact our Troopers today and let us create your perfect event experience.</p>
+                    <p>Reach out to our team in Mumbai on the below details:</p>
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <a href="mailto:info@tickettroops.com">info@tickettroops.com</a>
+                            <a href="mailto:sales@tickettroops.com">sales@tickettroops.com</a>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <a href="tel:+919999999999">+91 9999 999 999</a>
+                            <a href="tel:+918828188222">+91 88281 88222</a>
                         </div>
                         <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <p>Mumbai, India</p>
+                            <i class="fas fa-globe"></i>
+                            <a href="https://www.tickettroops.com" target="_blank">www.tickettroops.com</a>
                         </div>
                     </div>
                 </div>
