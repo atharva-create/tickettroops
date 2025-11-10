@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 :root {
     --primary-purple: #4A3A8C;
     --dark-purple: #2E2157;
@@ -20,12 +25,16 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .navbar {
@@ -309,6 +318,8 @@ body {
 .services {
     padding: 80px 0;
     background: var(--light-gray);
+    overflow: hidden;
+    width: 100%;
 }
 
 .section-header {
@@ -337,6 +348,8 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     margin-top: 50px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .service-card {
@@ -674,12 +687,8 @@ body {
     width: auto;
     height: auto;
     object-fit: contain;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
-}
-
-.trusted-clients .client-logo:hover img {
     filter: grayscale(0%);
+    transition: filter 0.3s ease;
 }
 
 /* About Us Section */
@@ -1104,7 +1113,7 @@ body {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 50px;
     margin-bottom: 30px;
 }
@@ -1191,7 +1200,42 @@ body {
     }
 
     .main-logo {
-        height: 180px;
+        height: 120px;
+        max-width: 90%;
+        width: auto;
+    }
+
+    .logo-container {
+        padding: 1rem;
+        margin: 0 auto;
+        max-width: 95%;
+    }
+
+    .hero-content {
+        padding: 1rem;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        padding: 0 10px;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .cta-button {
+        max-width: 90%;
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px 30px;
+        text-align: center;
     }
 
     .nav-logo {
@@ -1230,23 +1274,35 @@ body {
     }
 
     .timeline::before {
-        left: 30px;
+        left: 55px;
     }
 
     .timeline-item {
         justify-content: flex-start;
         padding-right: 0;
-        padding-left: 80px;
+        padding-left: 95px;
+        max-width: 100%;
+    }
+
+    .timeline {
+        max-width: 100%;
+        overflow: visible;
+    }
+
+    .journey-section {
+        overflow: hidden;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .timeline-item:nth-child(even) {
         justify-content: flex-start;
-        padding-left: 80px;
+        padding-left: 95px;
     }
 
     .timeline-icon {
-        left: 25px;
-        transform: translateX(0);
+        left: 55px;
+        transform: translateX(-50%);
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
@@ -1271,5 +1327,173 @@ body {
     .values-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+    }
+
+    .events-table {
+        overflow-x: visible;
+        margin: 0;
+        padding: 0;
+        margin-top: 30px;
+    }
+
+    .events-table table {
+        min-width: auto;
+        width: 100%;
+        border: 0;
+        box-shadow: none;
+    }
+
+    /* Hide table header on mobile */
+    .events-table thead {
+        display: none;
+    }
+
+    /* Make each row a card */
+    .events-table tbody {
+        display: block;
+    }
+
+    .events-table tr {
+        display: block;
+        background: var(--white);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e0e0e0;
+    }
+
+    /* Stack table cells vertically */
+    .events-table td {
+        display: block;
+        text-align: left;
+        padding: 10px 0;
+        border: none;
+        position: relative;
+    }
+
+    /* First cell (Event name) - larger and bold */
+    .events-table td:first-child {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--dark-purple);
+        padding-bottom: 15px;
+        border-bottom: 2px solid var(--light-gray);
+        margin-bottom: 10px;
+    }
+
+    /* Add labels using CSS pseudo-elements */
+    .events-table td:nth-child(2)::before {
+        content: '📍 ';
+        font-size: 1rem;
+        margin-right: 5px;
+    }
+
+    .events-table td:nth-child(3)::before {
+        content: '📅 ';
+        font-size: 1rem;
+        margin-right: 5px;
+    }
+
+    /* Style location and date */
+    .events-table td:nth-child(2),
+    .events-table td:nth-child(3) {
+        color: var(--text-light);
+        font-size: 0.95rem;
+        padding: 8px 0;
+    }
+
+    .footer-content {
+        gap: 30px;
+    }
+
+    .values-section {
+        padding: 40px 20px;
+    }
+}
+
+/* Extra Small Devices (Phones < 480px) */
+@media (max-width: 480px) {
+    .main-logo {
+        height: 100px;
+        max-width: 85%;
+    }
+
+    .logo-container {
+        padding: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+        padding: 0 5px;
+    }
+
+    .cta-button {
+        font-size: 0.95rem;
+        padding: 12px 25px;
+        max-width: 95%;
+    }
+
+    .hero {
+        height: auto;
+        min-height: calc(100vh - 80px);
+        padding: 2rem 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-logo {
+        height: 40px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .footer-content {
+        gap: 20px;
+    }
+
+    .values-container {
+        gap: 15px;
+    }
+
+    .timeline-item {
+        padding-left: 85px;
+    }
+
+    .timeline-item:nth-child(even) {
+        padding-left: 85px;
+    }
+
+    .timeline::before {
+        left: 45px;
+    }
+
+    .timeline-icon {
+        left: 45px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+
+    /* Event cards refinement for extra small screens */
+    .events-table tr {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .events-table td:first-child {
+        font-size: 1rem;
+        padding-bottom: 12px;
+    }
+
+    .events-table td:nth-child(2),
+    .events-table td:nth-child(3) {
+        font-size: 0.9rem;
+        padding: 6px 0;
     }
 }

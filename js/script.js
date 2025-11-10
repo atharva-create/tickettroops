@@ -180,15 +180,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add countdown for upcoming events
-    const eventRows = document.querySelectorAll('.events-table tbody tr');
-    eventRows.forEach(row => {
-        row.addEventListener('click', function() {
-            const eventName = this.cells[0].textContent;
-            const eventDate = this.cells[2].textContent;
-            alert(`Get ready for ${eventName}! Coming ${eventDate}. Contact us to secure your tickets!`);
-        });
-    });
+    // Add countdown for upcoming events - DISABLED
+    // const eventRows = document.querySelectorAll('.events-table tbody tr');
+    // eventRows.forEach(row => {
+    //     row.addEventListener('click', function() {
+    //         const eventName = this.cells[0].textContent;
+    //         const eventDate = this.cells[2].textContent;
+    //         alert(`Get ready for ${eventName}! Coming ${eventDate}. Contact us to secure your tickets!`);
+    //     });
+    // });
 
     // Add parallax effect to hero section
     const hero = document.querySelector('.hero');
