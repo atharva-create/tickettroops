@@ -53,11 +53,27 @@ body {
     align-items: center;
 }
 
+.logo {
+    position: relative;
+    z-index: 1001;
+}
+
+.logo a {
+    display: inline-block;
+    line-height: 0;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    z-index: 1001;
+}
+
 .nav-logo {
     height: 60px;
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 .nav-menu {
