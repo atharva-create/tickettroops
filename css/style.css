@@ -845,7 +845,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 4px;
-    height: 100%;
+    height: calc(100% - 90px);
     background: linear-gradient(to bottom, var(--gold), var(--primary-purple));
 }
 
