@@ -131,26 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    // Form submission
-    const contactForm = document.querySelector('.contact-form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Here you would normally send the data to a server
-            console.log('Form submitted:', data);
-            
-            // Show success message
-            alert('Thank you for your inquiry! Our Troopers will get back to you soon.');
-            
-            // Reset form
-            this.reset();
-        });
-    }
+    // Form submission handled by Web3Forms - no custom handler needed
 
     // Add hover effect to service cards
     const serviceCards = document.querySelectorAll('.service-card');

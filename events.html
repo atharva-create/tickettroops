@@ -195,19 +195,22 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="tel" placeholder="Your Phone">
-                        <select required>
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="dbfdb2cf-1400-4594-a71e-511324ea062d">
+                        <input type="hidden" name="subject" value="New Contact Form Submission - Ticket Troops">
+                        <input type="hidden" name="from_name" value="Ticket Troops Website">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Your Phone">
+                        <select name="service" required>
                             <option value="">Select Service</option>
-                            <option value="event-tickets">Event Tickets</option>
-                            <option value="accommodation">Accommodation</option>
-                            <option value="flights">Flight Bookings</option>
-                            <option value="sightseeing">Sightseeing</option>
-                            <option value="corporate">Corporate Events</option>
+                            <option value="Event Tickets">Event Tickets</option>
+                            <option value="Accommodation">Accommodation</option>
+                            <option value="Flight Bookings">Flight Bookings</option>
+                            <option value="Sightseeing">Sightseeing</option>
+                            <option value="Corporate Events">Corporate Events</option>
                         </select>
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
                 </div>
