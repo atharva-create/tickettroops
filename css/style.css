@@ -7,7 +7,7 @@
 html {
     overflow-x: hidden;
     width: 100%;
-    background: #442e80;
+    background: #2D2A4A;
 }
 
 :root {
@@ -22,11 +22,11 @@ html {
 
     /* Premium Dark Theme Colors */
     --tt-bg-section: #1A1830;
-    --tt-bg-card: #442e80;
+    --tt-bg-card: #2D2A4A;
     --tt-bg-footer: #13111F;
     --tt-bg-darkest: #0F0E17;
     --tt-bg-dark: #1A1824;
-    --tt-bg-purple: #442e80;
+    --tt-bg-purple: #2D2A4A;
     --tt-bg-purple-mid: #3D3A5C;
     --tt-bg-purple-light: #4A4670;
 
@@ -731,7 +731,7 @@ body {
 
 /* Experience Card */
 .experience-card {
-    background: #442e80;
+    background: #2D2A4A;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
@@ -1002,7 +1002,7 @@ body {
 }
 
 .events-table tbody tr {
-    background: #442e80;
+    background: #2D2A4A;
     transition: all 0.3s ease;
 }
 
@@ -1581,7 +1581,7 @@ body {
 }
 
 .contact-form select option {
-    background: #442e80;
+    background: #2D2A4A;
     color: var(--tt-text-white);
 }
 
@@ -1953,7 +1953,7 @@ body {
 
     .events-table tr {
         display: block;
-        background: #442e80;
+        background: #2D2A4A;
         border-radius: 15px;
         padding: 20px;
         margin-bottom: 20px;
