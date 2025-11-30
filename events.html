@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#2D2A4A">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-navbutton-color" content="#2D2A4A">
     <title>Upcoming Events - Ticket Troops</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
+    <style>html { background: #2D2A4A; }</style>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,29 +18,53 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="images/ticket_troops-2.png" alt="Ticket Troops" class="nav-logo">
-                    </a>
-                </div>
-                <ul class="nav-menu">
+    <!-- PREMIUM HEADER -->
+    <header class="premium-header" id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="images/ticket_troops-2.png" alt="Ticket Troops" class="logo-img">
+            </a>
+            <div class="nav-container">
+                <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="events.html" class="active">Events</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div class="nav-divider"></div>
+                <div class="header-contact">
+                    <a href="tel:+918828188222" class="phone-link">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 88281 88222</span>
+                    </a>
+                    <a href="index.html#contact" class="cta-button">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Us</span>
+                    </a>
                 </div>
             </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+            </button>
         </div>
-    </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html" class="active">Events</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="mobile-menu-contact">
+                <a href="tel:+918828188222" class="mobile-phone">
+                    <i class="fas fa-phone"></i>
+                    +91 88281 88222
+                </a>
+                <a href="index.html#contact" class="mobile-cta">Contact Us</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Upcoming Events -->
     <section class="upcoming-events" id="events">

@@ -1078,7 +1078,7 @@ body {
 /* About Us Section */
 .about-us {
     padding: 80px 0;
-    background: var(--white);
+    background: #1A1830;
 }
 
 /* Add top spacing for first section on non-home pages */
