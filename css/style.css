@@ -2569,17 +2569,41 @@ body {
     margin: 0 auto;
 }
 
-/* Clients Grid V3 */
-.clients-grid-v3 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+/* ----------------------------------------
+   CLIENTS MARQUEE - Infinite Scroll
+   ---------------------------------------- */
+
+.clients-marquee {
+    width: 100%;
+    overflow: hidden;
     margin-top: 60px;
+    padding: 20px 0;
 }
 
-/* Client Card V3 - White for logo visibility */
-.client-card-v3 {
+.clients-track {
+    display: flex;
+    gap: 40px;
+    animation: scroll-logos 25s linear infinite;
+    width: max-content;
+}
+
+/* Pause on hover */
+.clients-marquee:hover .clients-track {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-logos {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Client Logo Cards */
+.client-logo {
+    flex-shrink: 0;
     background: #FFFFFF;
     border-radius: 16px;
     padding: 24px 36px;
@@ -2592,14 +2616,14 @@ body {
     min-height: 85px;
 }
 
-.client-card-v3:hover {
-    transform: translateY(-5px) scale(1.03);
+.client-logo:hover {
+    transform: scale(1.05);
     box-shadow:
-        0 20px 45px rgba(0, 0, 0, 0.25),
-        0 0 25px rgba(229, 184, 42, 0.08);
+        0 15px 40px rgba(0, 0, 0, 0.25),
+        0 0 20px rgba(229, 184, 42, 0.1);
 }
 
-.client-card-v3 img {
+.client-logo img {
     max-width: 130px;
     max-height: 50px;
     object-fit: contain;
@@ -2607,7 +2631,7 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.client-card-v3:hover img {
+.client-logo:hover img {
     opacity: 1;
 }
 
@@ -2818,12 +2842,17 @@ body {
         padding: 80px 24px 100px;
     }
 
-    .client-card-v3 {
+    .clients-track {
+        gap: 24px;
+        animation-duration: 20s;
+    }
+
+    .client-logo {
         padding: 20px 28px;
         min-width: 140px;
     }
 
-    .client-card-v3 img {
+    .client-logo img {
         max-width: 100px;
     }
 
