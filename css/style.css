@@ -392,7 +392,7 @@ body {
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #E5B82A, #D4A828);
+    background: #E5B82A;
     transition: width 0.3s ease;
 }
 
@@ -591,13 +591,11 @@ body {
 }
 
 .tab-button.active {
-    background: linear-gradient(135deg, #F2CC55 0%, #E5B82A 50%, #D4A828 100%);
+    background: #E5B82A;
     color: #1A1830;
     border-color: transparent;
     font-weight: 600;
-    box-shadow:
-        0 4px 20px rgba(229, 184, 42, 0.4),
-        0 0 30px rgba(229, 184, 42, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .tab-content {
@@ -1203,7 +1201,7 @@ body {
 }
 
 .submit-btn {
-    background: linear-gradient(135deg, #F2CC55 0%, #E5B82A 50%, #D4A828 100%);
+    background: #E5B82A;
     color: #1A1830;
     padding: 16px 40px;
     font-size: 15px;
@@ -1214,16 +1212,12 @@ body {
     transition: all 0.3s;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow:
-        0 4px 20px rgba(229, 184, 42, 0.35),
-        0 0 40px rgba(229, 184, 42, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow:
-        0 8px 30px rgba(229, 184, 42, 0.5),
-        0 0 50px rgba(229, 184, 42, 0.25);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .footer {
