@@ -2172,3 +2172,639 @@ body {
         padding: 6px 0;
     }
 }
+
+/* ========================================
+   ABOUT PAGE - COMPLETE REDESIGN
+   ======================================== */
+
+/* ----------------------------------------
+   ABOUT HERO SECTION
+   ---------------------------------------- */
+
+.about-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 40px 100px;
+    overflow: hidden;
+}
+
+.about-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.about-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(22, 16, 58, 0.85) 0%,
+        rgba(22, 16, 58, 0.7) 50%,
+        rgba(22, 16, 58, 0.95) 100%
+    );
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-hero .hero-label {
+    color: #E5B82A;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.about-hero .hero-title {
+    color: #FFFFFF;
+    font-size: 52px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.about-hero .hero-title span {
+    color: #E5B82A;
+}
+
+.about-hero .hero-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------
+   OUR JOURNEY SECTION - ASCENDING CARDS
+   ---------------------------------------- */
+
+.journey-section-new {
+    background: linear-gradient(180deg, #f8f6f2 0%, #f0ece4 100%);
+    padding: 100px 40px;
+    position: relative;
+}
+
+.journey-section-new .container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Journey Header */
+.journey-header {
+    margin-bottom: 60px;
+}
+
+.journey-label {
+    color: #E5B82A;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.journey-title-new {
+    color: #16103a;
+    font-size: 48px;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.15;
+}
+
+/* Journey Cards Container */
+.journey-cards {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px;
+    padding-top: 40px;
+}
+
+/* Individual Journey Card */
+.journey-card {
+    background: linear-gradient(165deg, #f9d363 0%, #f2c758 30%, #E5B82A 60%, #e4b450 100%);
+    border-radius: 24px;
+    padding: 32px 28px;
+    width: 280px;
+    position: relative;
+    box-shadow:
+        0 20px 40px rgba(229, 184, 42, 0.25),
+        0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journey-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 30px 50px rgba(229, 184, 42, 0.35),
+        0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Ascending Heights */
+.journey-card[data-step="1"] {
+    min-height: 320px;
+}
+
+.journey-card[data-step="2"] {
+    min-height: 380px;
+}
+
+.journey-card[data-step="3"] {
+    min-height: 440px;
+}
+
+.journey-card[data-step="4"] {
+    min-height: 500px;
+}
+
+/* Card Content */
+.journey-card-content {
+    margin-bottom: 40px;
+}
+
+.journey-card-content h4 {
+    color: #16103a;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.journey-card-content p {
+    color: rgba(22, 16, 58, 0.8);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Card Icon */
+.journey-card-icon {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.journey-card-icon i {
+    font-size: 36px;
+    color: #16103a;
+    opacity: 0.5;
+}
+
+/* ----------------------------------------
+   WHY CHOOSE US SECTION - DARK CARDS
+   ---------------------------------------- */
+
+.why-choose-section-new {
+    background: #16103a;
+    padding: 100px 40px;
+}
+
+.why-choose-section-new .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Header */
+.section-header-new {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-label-new {
+    color: #E5B82A;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-title-new {
+    color: #FFFFFF;
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Expertise Grid */
+.expertise-grid-new {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-top: 20px;
+}
+
+/* Expertise Card */
+.expertise-card-new {
+    background: #0f0a28;
+    border-radius: 20px;
+    padding: 70px 32px 40px;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.4s ease;
+}
+
+.expertise-card-new::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.expertise-card-new:hover {
+    transform: translateY(-8px);
+    border-color: rgba(229, 184, 42, 0.2);
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(229, 184, 42, 0.08);
+}
+
+/* Gold Icon Circle */
+.expertise-icon-new {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(145deg, #f9d363 0%, #f2c758 30%, #E5B82A 60%, #e4b450 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow:
+        0 0 30px rgba(229, 184, 42, 0.4),
+        0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.expertise-icon-new i {
+    font-size: 28px;
+    color: #16103a;
+}
+
+.expertise-card-new h4 {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+    margin-top: 20px;
+}
+
+.expertise-card-new p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* ----------------------------------------
+   TRUSTED CLIENTS SECTION
+   ---------------------------------------- */
+
+.clients-section {
+    background: linear-gradient(180deg, #f8f6f2 0%, #f0ece4 100%);
+    padding: 100px 40px;
+}
+
+.clients-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Header */
+.clients-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.clients-title {
+    color: #16103a;
+    font-size: 42px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.clients-description {
+    color: rgba(22, 16, 58, 0.7);
+    font-size: 17px;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Clients Grid */
+.clients-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+/* Client Card */
+.client-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    min-width: 200px;
+    min-height: 100px;
+}
+
+.client-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.client-card img {
+    max-width: 150px;
+    max-height: 60px;
+    object-fit: contain;
+    filter: grayscale(0%);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.client-card:hover img {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+/* ----------------------------------------
+   ABOUT CTA SECTION
+   ---------------------------------------- */
+
+.about-cta-section {
+    background: #16103a;
+    padding: 100px 40px;
+    text-align: center;
+}
+
+.about-cta-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    color: #FFFFFF;
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.cta-content h2 span {
+    color: #E5B82A;
+}
+
+.cta-content > p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(145deg, #f9d363 0%, #E5B82A 50%, #e4b450 100%);
+    color: #16103a;
+    padding: 18px 40px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow:
+        0 4px 25px rgba(229, 184, 42, 0.4),
+        0 0 50px rgba(229, 184, 42, 0.15);
+    transition: all 0.3s ease;
+}
+
+.cta-primary i {
+    font-size: 16px;
+    color: #16103a;
+}
+
+.cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 8px 35px rgba(229, 184, 42, 0.5),
+        0 0 60px rgba(229, 184, 42, 0.25);
+}
+
+.cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: #FFFFFF;
+    padding: 18px 40px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.3s ease;
+}
+
+.cta-secondary i {
+    font-size: 16px;
+    color: #E5B82A;
+}
+
+.cta-secondary:hover {
+    border-color: #E5B82A;
+    background: rgba(229, 184, 42, 0.1);
+}
+
+/* ----------------------------------------
+   ABOUT PAGE - RESPONSIVE STYLES
+   ---------------------------------------- */
+
+@media (max-width: 1200px) {
+    .journey-cards {
+        flex-wrap: wrap;
+        align-items: stretch;
+    }
+
+    .journey-card {
+        min-height: auto !important;
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .expertise-grid-new {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        min-height: 60vh;
+        padding: 120px 24px 80px;
+    }
+
+    .about-hero .hero-title {
+        font-size: 32px;
+    }
+
+    .about-hero .hero-description {
+        font-size: 16px;
+    }
+
+    .journey-section-new {
+        padding: 70px 24px;
+    }
+
+    .journey-title-new {
+        font-size: 32px;
+    }
+
+    .journey-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .journey-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .why-choose-section-new {
+        padding: 80px 24px;
+    }
+
+    .section-title-new {
+        font-size: 28px;
+    }
+
+    .expertise-grid-new {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .expertise-card-new {
+        padding: 60px 24px 36px;
+    }
+
+    .expertise-icon-new {
+        width: 70px;
+        height: 70px;
+        top: -35px;
+    }
+
+    .expertise-icon-new i {
+        font-size: 24px;
+    }
+
+    .clients-section {
+        padding: 70px 24px;
+    }
+
+    .clients-title {
+        font-size: 28px;
+    }
+
+    .client-card {
+        padding: 24px 32px;
+        min-width: 160px;
+    }
+
+    .client-card img {
+        max-width: 120px;
+        max-height: 50px;
+    }
+
+    .about-cta-section {
+        padding: 70px 24px;
+    }
+
+    .cta-content h2 {
+        font-size: 28px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero .hero-title {
+        font-size: 26px;
+    }
+
+    .journey-title-new {
+        font-size: 26px;
+    }
+
+    .section-title-new {
+        font-size: 24px;
+    }
+
+    .clients-title {
+        font-size: 24px;
+    }
+
+    .cta-content h2 {
+        font-size: 24px;
+    }
+}
