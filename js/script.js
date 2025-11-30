@@ -1,52 +1,7 @@
-let currentSlide = 0;
-const totalSlides = 4;
-
-function moveSlide(direction) {
-    const track = document.querySelector('.services-track');
-    const cards = document.querySelectorAll('.service-card');
-    const dots = document.querySelectorAll('.dot');
-    
-    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-    
-    // Update track position
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    
-    // Update active states
-    cards.forEach((card, index) => {
-        card.classList.toggle('active', index === currentSlide);
-    });
-    
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-    });
-}
-
-function goToSlide(slideIndex) {
-    const track = document.querySelector('.services-track');
-    const cards = document.querySelectorAll('.service-card');
-    const dots = document.querySelectorAll('.dot');
-    
-    currentSlide = slideIndex;
-    
-    // Update track position
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    
-    // Update active states
-    cards.forEach((card, index) => {
-        card.classList.toggle('active', index === currentSlide);
-    });
-    
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-    });
-}
-
-// Auto-play carousel
-setInterval(() => {
-    moveSlide(1);
-}, 5000);
-
 document.addEventListener('DOMContentLoaded', function() {
+    // Hero Carousel
+    initHeroCarousel();
+
     // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -95,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
-        
+
         if (currentScroll > 100) {
             navbar.style.background = 'rgba(46, 33, 87, 0.95)';
             navbar.style.backdropFilter = 'blur(10px)';
@@ -173,37 +128,6 @@ document.addEventListener('DOMContentLoaded', function() {
     //     });
     // });
 
-    // Add parallax effect to hero section
-    const hero = document.querySelector('.hero');
-    const heroContent = document.querySelector('.hero-content');
-    
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxSpeed = 0.5;
-        
-        if (scrolled < window.innerHeight) {
-            heroContent.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-        }
-    });
-
-    // Add typing effect to hero title (optional)
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const text = heroTitle.textContent;
-        heroTitle.textContent = '';
-        let index = 0;
-        
-        function typeWriter() {
-            if (index < text.length) {
-                heroTitle.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-        
-        // Start typing after page load
-        setTimeout(typeWriter, 500);
-    }
 
     // Add hover effect to feature cards
     const featureCards = document.querySelectorAll('.feature-card');
@@ -266,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Utility function to handle lazy loading of images
 function lazyLoadImages() {
     const images = document.querySelectorAll('img[data-src]');
-    
+
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -277,6 +201,76 @@ function lazyLoadImages() {
             }
         });
     });
-    
+
     images.forEach(img => imageObserver.observe(img));
+}
+
+// Hero Carousel Functionality
+function initHeroCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const carousel = document.querySelector('.hero-carousel');
+
+    if (!slides.length) return;
+
+    let currentSlide = 0;
+    let interval;
+    const INTERVAL_TIME = 5000; // 5 seconds
+
+    function goToSlide(index) {
+        slides[currentSlide].classList.remove('active');
+        dots[currentSlide].classList.remove('active');
+
+        currentSlide = (index + slides.length) % slides.length;
+
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+        goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        goToSlide(currentSlide - 1);
+    }
+
+    function startAutoPlay() {
+        interval = setInterval(nextSlide, INTERVAL_TIME);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(interval);
+    }
+
+    // Arrow click handlers
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        stopAutoPlay();
+        startAutoPlay();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        stopAutoPlay();
+        startAutoPlay();
+    });
+
+    // Dot click handlers
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            goToSlide(index);
+            stopAutoPlay();
+            startAutoPlay();
+        });
+    });
+
+    // Pause on hover
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+
+    // Start auto-play
+    startAutoPlay();
 }
