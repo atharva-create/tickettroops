@@ -497,33 +497,70 @@ body {
     );
 }
 
-/* Navigation Arrows */
+/* ========================================
+   PREMIUM CAROUSEL ARROWS
+   ======================================== */
+
 .carousel-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(26, 24, 48, 0.25);
-    color: #E5B82A;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 20;
+
+    /* Size - larger for better visibility */
     width: 56px;
     height: 56px;
-    border-radius: 16px;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* Frosted glass effect - matches header */
+    background: rgba(26, 24, 48, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* Border with subtle glow */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+
+    /* Flexbox for centering icon */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+
+    /* Cursor and transitions */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* Remove default button styles */
+    padding: 0;
+    outline: none;
 }
 
+/* Arrow Icon */
+.carousel-arrow i {
+    font-size: 20px;
+    color: #E5B82A;
+    transition: all 0.3s ease;
+}
+
+/* Hover State */
 .carousel-arrow:hover {
-    background: rgba(26, 24, 48, 0.6);
-    border-color: rgba(229, 184, 42, 0.4);
-    transform: translateY(-50%) scale(1.05);
-    box-shadow: 0 8px 30px rgba(229, 184, 42, 0.2);
+    background: rgba(26, 24, 48, 0.7);
+    border-color: rgba(229, 184, 42, 0.5);
+    box-shadow:
+        0 0 30px rgba(229, 184, 42, 0.3),
+        0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-arrow:hover i {
+    color: #F2CC55;
+}
+
+/* Active/Click State */
+.carousel-arrow:active {
+    transform: translateY(-50%) scale(0.98);
+    box-shadow:
+        0 0 20px rgba(229, 184, 42, 0.2),
+        0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-prev {
@@ -1714,18 +1751,21 @@ body {
     }
 
     .carousel-arrow {
-        width: 44px;
-        height: 44px;
-        font-size: 0.9rem;
-        border-radius: 12px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+    }
+
+    .carousel-arrow i {
+        font-size: 18px;
     }
 
     .carousel-prev {
-        left: 10px;
+        left: 15px;
     }
 
     .carousel-next {
-        right: 10px;
+        right: 15px;
     }
 
     .carousel-dots {
@@ -1959,18 +1999,21 @@ body {
     }
 
     .carousel-arrow {
-        width: 38px;
-        height: 38px;
-        font-size: 0.8rem;
-        border-radius: 10px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+    }
+
+    .carousel-arrow i {
+        font-size: 16px;
     }
 
     .carousel-prev {
-        left: 8px;
+        left: 10px;
     }
 
     .carousel-next {
-        right: 8px;
+        right: 10px;
     }
 
     .carousel-dots {
