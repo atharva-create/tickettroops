@@ -1021,6 +1021,41 @@ body {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* View All Events CTA Button */
+.view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding: 14px 32px;
+    background: transparent;
+    border: 1px solid rgba(229, 184, 42, 0.5);
+    border-radius: 100px;
+    color: #E5B82A;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background: linear-gradient(145deg, #F2CC55 0%, #E5B82A 50%, #D4A828 100%);
+    color: #1A1830;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(229, 184, 42, 0.4);
+}
+
+.view-all-btn i {
+    transition: transform 0.3s ease;
+}
+
+.view-all-btn:hover i {
+    transform: translateX(5px);
+}
+
 .why-choose {
     padding: 80px 0;
     background: var(--light-gray);
