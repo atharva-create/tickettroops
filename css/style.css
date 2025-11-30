@@ -102,16 +102,15 @@ body {
 /* Scrolled State: Solid Header */
 .premium-header.scrolled {
     padding: 0 40px;
-    background: rgba(26, 24, 48, 0.97);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(229, 184, 42, 0.2);
 }
 
 .premium-header.scrolled .header-inner {
     margin-top: 0;
-    padding: 14px 0;
-    background: transparent;
+    padding: 14px 32px;
+    background: rgba(26, 24, 48, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: none;
     border-radius: 0;
 }
