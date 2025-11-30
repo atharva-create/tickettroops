@@ -11,8 +11,8 @@ html {
 }
 
 :root {
-    --primary-purple: #4A3A8C;
-    --dark-purple: #2E2157;
+    --primary-purple: #442e80;
+    --dark-purple: #2a1a4d;
     --gold: #F4C430;
     --gold-dark: #D4A520;
     --white: #F5F3F0;
@@ -429,7 +429,7 @@ body {
    ======================================== */
 
 .hero {
-    background: #4E3B97;
+    background: #442e80;
     height: 100vh;
     display: flex;
     align-items: center;
