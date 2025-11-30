@@ -410,34 +410,15 @@ body {
     margin: 0 auto 20px;
     color: #1A1830;
     font-size: 1.8rem;
-    position: relative;
-
-    /* Metallic gold gradient */
-    background: linear-gradient(
-        145deg,
-        #F2CC55 0%,
-        #E5B82A 25%,
-        #D4A828 50%,
-        #B8941F 75%,
-        #9A7B18 100%
-    );
-
-    /* Gold glow effect */
-    box-shadow:
-        0 0 25px rgba(229, 184, 42, 0.4),
-        0 0 50px rgba(229, 184, 42, 0.2),
-        0 8px 20px rgba(0, 0, 0, 0.3);
-
+    background: #E5B82A;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.4s ease;
 }
 
-/* Hover state - intensify glow */
+/* Hover state */
 .service-card:hover .service-icon {
     transform: scale(1.08);
-    box-shadow:
-        0 0 35px rgba(229, 184, 42, 0.6),
-        0 0 60px rgba(229, 184, 42, 0.3),
-        0 12px 30px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 .service-card h4 {
