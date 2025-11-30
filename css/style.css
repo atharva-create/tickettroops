@@ -109,7 +109,7 @@ body {
 
 .hero {
     background: #4E3B97;
-    height: 70vh;
+    height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1140,30 +1140,46 @@ body {
         left: 0;
     }
 
-    /* Carousel Mobile Styles */
+    /* Hero & Carousel Mobile Styles */
+    .hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+
     .carousel-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
     }
 
     .carousel-prev {
-        left: 15px;
+        left: 10px;
     }
 
     .carousel-next {
-        right: 15px;
+        right: 10px;
     }
 
     .carousel-dots {
-        bottom: 20px;
+        bottom: 60px;
         left: 50%;
         transform: translateX(-50%);
+        gap: 8px;
     }
 
     .carousel-dot {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
+    }
+
+    .scroll-down {
+        bottom: 15px;
+        font-size: 0.75rem;
+        gap: 4px;
+    }
+
+    .scroll-down i {
+        font-size: 0.9rem;
     }
 
     .nav-logo {
@@ -1342,31 +1358,42 @@ body {
 
 /* Extra Small Devices (Phones < 480px) */
 @media (max-width: 480px) {
-    .main-logo {
-        height: 100px;
-        max-width: 85%;
-    }
-
-    .logo-container {
-        padding: 0.75rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .hero-description {
-        font-size: 0.9rem;
-        padding: 0 5px;
-    }
-
-    .cta-button {
-        font-size: 0.95rem;
-        padding: 12px 25px;
-        max-width: 95%;
-    }
-
     .hero {
-        height: auto;
-        min-height: calc(100vh - 80px);
-        padding: 2rem 0;
+        height: 45vh;
+        min-height: 300px;
+    }
+
+    .carousel-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+
+    .carousel-prev {
+        left: 8px;
+    }
+
+    .carousel-next {
+        right: 8px;
+    }
+
+    .carousel-dots {
+        bottom: 50px;
+        gap: 6px;
+    }
+
+    .carousel-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .scroll-down {
+        bottom: 12px;
+        font-size: 0.7rem;
+    }
+
+    .scroll-down span {
+        display: none;
     }
 
     .services-grid {
