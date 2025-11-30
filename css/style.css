@@ -165,7 +165,7 @@ body {
     object-fit: cover;
 }
 
-/* Hero Overlay Gradient - Multi-stage for smooth transition */
+/* Hero Overlay Gradient - Pure purple, no black for cleaner blend */
 .hero-overlay {
     position: absolute;
     inset: 0;
@@ -173,24 +173,24 @@ body {
     z-index: 1;
     background: linear-gradient(
         to bottom,
-        /* Top - slight purple tint for navbar area */
-        rgba(45, 42, 74, 0.6) 0%,
-        rgba(45, 42, 74, 0.2) 8%,
+        /* Top: Light purple tint for navbar area */
+        rgba(45, 42, 74, 0.45) 0%,
+        rgba(45, 42, 74, 0.15) 6%,
+        rgba(45, 42, 74, 0) 12%,
 
-        /* Middle - completely transparent to show image */
-        transparent 15%,
-        transparent 40%,
+        /* Clear zone - show image fully */
+        rgba(45, 42, 74, 0) 40%,
 
-        /* Transition zone - darken FIRST before adding color */
-        rgba(0, 0, 0, 0.15) 50%,
-        rgba(0, 0, 0, 0.35) 58%,
-        rgba(0, 0, 0, 0.55) 66%,
-        rgba(10, 10, 15, 0.75) 74%,
-
-        /* Final color transition - black to purple */
-        rgba(20, 18, 30, 0.9) 82%,
-        rgba(35, 32, 55, 0.97) 90%,
-        rgba(45, 42, 74, 1) 96%,
+        /* Very gentle fade using only purple */
+        rgba(45, 42, 74, 0.08) 50%,
+        rgba(45, 42, 74, 0.18) 58%,
+        rgba(45, 42, 74, 0.3) 65%,
+        rgba(45, 42, 74, 0.45) 72%,
+        rgba(45, 42, 74, 0.6) 78%,
+        rgba(45, 42, 74, 0.75) 83%,
+        rgba(45, 42, 74, 0.88) 88%,
+        rgba(45, 42, 74, 0.96) 93%,
+        rgba(45, 42, 74, 1) 97%,
         rgba(45, 42, 74, 1) 100%
     );
 }
@@ -1344,15 +1344,16 @@ body {
     .hero-overlay {
         background: linear-gradient(
             to bottom,
-            rgba(45, 42, 74, 0.5) 0%,
-            rgba(45, 42, 74, 0.15) 10%,
-            transparent 20%,
-            transparent 35%,
-            rgba(0, 0, 0, 0.2) 50%,
-            rgba(0, 0, 0, 0.45) 62%,
-            rgba(10, 10, 15, 0.7) 74%,
-            rgba(25, 23, 38, 0.9) 85%,
-            rgba(45, 42, 74, 1) 95%,
+            rgba(45, 42, 74, 0.4) 0%,
+            rgba(45, 42, 74, 0.1) 8%,
+            rgba(45, 42, 74, 0) 15%,
+            rgba(45, 42, 74, 0) 35%,
+            rgba(45, 42, 74, 0.15) 50%,
+            rgba(45, 42, 74, 0.35) 62%,
+            rgba(45, 42, 74, 0.55) 72%,
+            rgba(45, 42, 74, 0.75) 82%,
+            rgba(45, 42, 74, 0.92) 90%,
+            rgba(45, 42, 74, 1) 96%,
             rgba(45, 42, 74, 1) 100%
         );
     }
@@ -1577,14 +1578,15 @@ body {
     .hero-overlay {
         background: linear-gradient(
             to bottom,
-            rgba(45, 42, 74, 0.4) 0%,
-            rgba(45, 42, 74, 0.1) 12%,
-            transparent 25%,
-            transparent 40%,
-            rgba(0, 0, 0, 0.25) 55%,
-            rgba(0, 0, 0, 0.5) 68%,
-            rgba(15, 14, 23, 0.8) 80%,
-            rgba(45, 42, 74, 1) 95%,
+            rgba(45, 42, 74, 0.35) 0%,
+            rgba(45, 42, 74, 0.1) 10%,
+            rgba(45, 42, 74, 0) 20%,
+            rgba(45, 42, 74, 0) 38%,
+            rgba(45, 42, 74, 0.2) 52%,
+            rgba(45, 42, 74, 0.4) 64%,
+            rgba(45, 42, 74, 0.65) 76%,
+            rgba(45, 42, 74, 0.85) 86%,
+            rgba(45, 42, 74, 1) 94%,
             rgba(45, 42, 74, 1) 100%
         );
     }
