@@ -81,10 +81,10 @@ body {
     right: 0;
     z-index: 1000;
     padding: 0 40px;
-    background: rgba(26, 24, 48, 0.97);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(229, 184, 42, 0.2);
+    background: rgba(26, 24, 48, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 }
 
@@ -93,13 +93,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 0;
+    padding: 16px 0;
     transition: all 0.3s ease;
 }
 
-/* Scrolled State - slightly more compact */
+/* Scrolled State - more solid */
 .premium-header.scrolled {
-    background: rgba(26, 24, 48, 0.98);
+    background: rgba(26, 24, 48, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(229, 184, 42, 0.2);
 }
 
 .premium-header.scrolled .header-inner {
