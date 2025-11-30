@@ -2571,20 +2571,25 @@ body {
 
 /* ----------------------------------------
    CLIENTS MARQUEE - Infinite Scroll
+   Full-width breakout from container
    ---------------------------------------- */
 
 .clients-marquee {
-    width: 100%;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     overflow: hidden;
     margin-top: 60px;
-    padding: 20px 0;
+    padding: 30px 0;
 }
 
 .clients-track {
     display: flex;
-    gap: 40px;
-    animation: scroll-logos 25s linear infinite;
+    gap: 60px;
+    animation: scroll-logos 30s linear infinite;
     width: max-content;
+    padding: 0 30px;
 }
 
 /* Pause on hover */
@@ -2843,17 +2848,17 @@ body {
     }
 
     .clients-track {
-        gap: 24px;
-        animation-duration: 20s;
+        gap: 40px;
+        animation-duration: 25s;
     }
 
     .client-logo {
         padding: 20px 28px;
-        min-width: 140px;
+        min-width: 150px;
     }
 
     .client-logo img {
-        max-width: 100px;
+        max-width: 110px;
     }
 
     .cta-section-v3 {
