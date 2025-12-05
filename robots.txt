@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://tickettroops.com/sitemap.xml
+
+# Disallow crawling of large files
+Disallow: /ticket_troops_latest_deck.pdf
+Disallow: /tickettroops_deck_new.pdf
+Disallow: /tickettroops_deck_old.pdf
+Disallow: /vf1.pdf

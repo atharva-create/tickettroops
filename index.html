@@ -7,7 +7,32 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-navbutton-color" content="#16103a">
-    <title>Ticket Troops - Sports | Shows | Stays</title>
+    <title>TicketTroops - Premium Sports & Entertainment Event Tickets India | IPL, Concerts, Formula 1</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="TicketTroops - Your gateway to exclusive global experiences. Premium sports and entertainment event tickets for IPL, Formula 1, concerts, and festivals across India and worldwide.">
+    <meta name="keywords" content="tickettroops, ticket troops, premium event tickets India, IPL tickets, concert tickets India, sports tickets India, Formula 1 tickets, music festival tickets, VIP event access, experiential travel India">
+    <meta name="author" content="TicketTroops">
+    <link rel="canonical" href="https://tickettroops.com/">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tickettroops.com/">
+    <meta property="og:title" content="TicketTroops - Premium Sports & Entertainment Event Tickets India">
+    <meta property="og:description" content="Your gateway to exclusive global experiences. Premium tickets for IPL, Formula 1, concerts, and entertainment events across India and worldwide.">
+    <meta property="og:image" content="https://tickettroops.com/images/new_logo.png">
+    <meta property="og:site_name" content="TicketTroops">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TicketTroops - Premium Sports & Entertainment Event Tickets India">
+    <meta name="twitter:description" content="Your gateway to exclusive global experiences. Premium tickets for IPL, Formula 1, concerts, and festivals.">
+    <meta name="twitter:image" content="https://tickettroops.com/images/new_logo.png">
+
+    <!-- Contact & Business Info -->
+    <meta name="contact" content="sales@tickettroops.com">
+    <meta name="telephone" content="+91-88281-88222">
+
     <link rel="icon" type="image/png" href="images/new_favicon.png">
     <link rel="apple-touch-icon" href="images/new_favicon.png">
     <style>html { background: #16103a; }</style>
@@ -16,6 +41,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TicketTroops",
+      "url": "https://tickettroops.com",
+      "logo": "https://tickettroops.com/images/new_logo.png",
+      "description": "Your Gateway to Exclusive Global Experiences - Premium experiential travel and events company specializing in sports, concerts, and entertainment events.",
+      "email": "sales@tickettroops.com",
+      "telephone": "+91-88281-88222",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN",
+        "addressRegion": "Maharashtra"
+      },
+      "sameAs": []
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "TicketTroops",
+      "url": "https://tickettroops.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://tickettroops.com/events.html?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 <body>
     <!-- PREMIUM HEADER -->
@@ -27,7 +95,7 @@
             </a>
 
             <!-- Navigation Container -->
-            <div class="nav-container">
+            <nav class="nav-container">
                 <!-- Nav Links -->
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
@@ -53,7 +121,7 @@
                         <span>Contact Us</span>
                     </a>
                 </div>
-            </div>
+            </nav>
 
             <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
@@ -81,6 +149,8 @@
         </div>
     </div>
 
+    <!-- Main Content -->
+    <main>
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-carousel">
@@ -110,6 +180,16 @@
 
             <!-- Gradient Overlay -->
             <div class="hero-overlay"></div>
+
+            <!-- Hero Content -->
+            <div class="hero-content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 3; width: 90%; max-width: 1200px;">
+                <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 1.5rem; color: white; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); line-height: 1.2;">
+                    Premium Sports & Entertainment Event Tickets India
+                </h1>
+                <p style="font-size: clamp(1rem, 2vw, 1.5rem); color: rgba(255,255,255,0.95); font-weight: 500; text-shadow: 1px 1px 4px rgba(0,0,0,0.3);">
+                    Your Gateway to Exclusive Global Experiences
+                </p>
+            </div>
 
             <!-- Navigation Arrows -->
             <button class="carousel-arrow carousel-prev" aria-label="Previous slide">
@@ -541,6 +621,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">

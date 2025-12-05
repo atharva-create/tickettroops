@@ -7,7 +7,32 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-navbutton-color" content="#2e235d">
-    <title>About Us - Ticket Troops</title>
+    <title>About TicketTroops - Premium Experiential Travel & Events Company India</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="About TicketTroops - A premium experiential travel and events company crafting bespoke global experiences through sports, concerts, and entertainment events across India and worldwide.">
+    <meta name="keywords" content="about tickettroops, premium experiential travel, event management India, sports event packages, concert experiences, VIP event access">
+    <meta name="author" content="TicketTroops">
+    <link rel="canonical" href="https://tickettroops.com/about.html">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tickettroops.com/about.html">
+    <meta property="og:title" content="About TicketTroops - Premium Experiential Travel & Events Company">
+    <meta property="og:description" content="Crafting bespoke global experiences through sports, concerts, and entertainment events. Your gateway to exclusive experiences worldwide.">
+    <meta property="og:image" content="https://tickettroops.com/images/new_logo.png">
+    <meta property="og:site_name" content="TicketTroops">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About TicketTroops - Premium Experiential Travel & Events">
+    <meta name="twitter:description" content="Crafting bespoke global experiences through sports, concerts, and entertainment events.">
+    <meta name="twitter:image" content="https://tickettroops.com/images/new_logo.png">
+
+    <!-- Contact & Business Info -->
+    <meta name="contact" content="sales@tickettroops.com">
+    <meta name="telephone" content="+91-88281-88222">
+
     <link rel="icon" type="image/png" href="images/new_favicon.png">
     <link rel="apple-touch-icon" href="images/new_favicon.png">
     <style>html { background: #2e235d; }</style>
@@ -16,6 +41,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TicketTroops",
+      "url": "https://tickettroops.com",
+      "logo": "https://tickettroops.com/images/new_logo.png",
+      "description": "Your Gateway to Exclusive Global Experiences - Premium experiential travel and events company specializing in sports, concerts, and entertainment events.",
+      "email": "sales@tickettroops.com",
+      "telephone": "+91-88281-88222",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN",
+        "addressRegion": "Maharashtra"
+      },
+      "sameAs": []
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 <body>
     <!-- PREMIUM HEADER -->
@@ -24,7 +78,7 @@
             <a href="index.html" class="logo">
                 <img src="images/new_logo.png" alt="Ticket Troops" class="logo-img">
             </a>
-            <div class="nav-container">
+            <nav class="nav-container">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html" class="active">About</a></li>
@@ -42,7 +96,7 @@
                         <span>Contact Us</span>
                     </a>
                 </div>
-            </div>
+            </nav>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
                 <span class="hamburger-line"></span>
             </button>
@@ -68,6 +122,8 @@
         </div>
     </div>
 
+    <!-- Main Content -->
+    <main>
     <!-- ABOUT HERO SECTION -->
     <section class="about-hero-v3">
         <div class="about-hero-bg">
@@ -371,6 +427,7 @@
 
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
