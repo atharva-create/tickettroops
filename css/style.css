@@ -1017,8 +1017,8 @@ body {
 }
 
 .events-table tbody tr:hover {
-    background: #4a3885;
-    transform: translateX(5px);
+    background: #392a70;
+    transform: none;
 }
 
 .events-table tbody td:first-child {
