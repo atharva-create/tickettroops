@@ -89,6 +89,11 @@
     <!-- PREMIUM HEADER -->
     <header class="premium-header" id="header">
         <div class="header-inner">
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+            </button>
+
             <!-- Logo -->
             <a href="/" class="logo">
                 <img src="images/TT_LOGO.png" alt="Ticket Troops" class="logo-img">
@@ -100,7 +105,6 @@
                 <ul class="nav-links">
                     <li><a href="/" class="active">Home</a></li>
                     <li><a href="/about">About Us</a></li>
-                    <li><a href="/#experiences">Services</a></li>
                     <li><a href="/events">Events</a></li>
                 </ul>
 
@@ -109,18 +113,13 @@
 
                 <!-- Contact Section -->
                 <div class="header-contact">
-                    <!-- CTA Button -->
-                    <a href="#contact" class="cta-button">
-                        <i class="fas fa-envelope"></i>
+                    <!-- CTA Button - WhatsApp -->
+                    <a href="https://wa.me/918828188222" class="cta-button" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
                         <span>Contact Us</span>
                     </a>
                 </div>
             </nav>
-
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                <span class="hamburger-line"></span>
-            </button>
         </div>
     </header>
 
@@ -129,16 +128,11 @@
         <div class="mobile-menu-content">
             <ul class="mobile-nav-links">
                 <li><a href="/" class="active">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/#experiences">Services</a></li>
+                <li><a href="/about">About Us</a></li>
                 <li><a href="/events">Events</a></li>
             </ul>
             <div class="mobile-menu-contact">
-                <a href="tel:+918828188222" class="mobile-phone">
-                    <i class="fas fa-phone"></i>
-                    +91 88281 88222
-                </a>
-                <a href="#contact" class="mobile-cta">Contact Us</a>
+                <a href="https://wa.me/918828188222" class="mobile-cta" target="_blank" rel="noopener noreferrer">Contact Us</a>
             </div>
         </div>
     </div>
@@ -340,7 +334,7 @@
     <!-- Upcoming Events -->
     <section class="upcoming-events" id="events">
         <div class="container">
-            <h2 class="section-title-large gold">Upcoming Events 2025-26</h2>
+            <h2 class="section-title-large gold">Upcoming Events 2026</h2>
 
             <!-- Events Table -->
             <div class="events-table">
@@ -350,58 +344,71 @@
                             <th>EVENTS</th>
                             <th>VENUE/PLACE</th>
                             <th>MONTH</th>
+                            <th>TYPE</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>WPL 2026 - Season 4</td>
-                            <td>India</td>
-                            <td>Jan - Feb 2026</td>
-                        </tr>
+                        <!-- Sports Events -->
                         <tr>
                             <td>ICC Men's T20 World Cup</td>
                             <td>India & Sri Lanka</td>
                             <td>Feb - Mar 2026</td>
+                            <td><span class="event-type sports">Sports</span></td>
                         </tr>
                         <tr>
                             <td>IPL 2026 - Season 19</td>
                             <td>India</td>
                             <td>Mar - May 2026</td>
+                            <td><span class="event-type sports">Sports</span></td>
                         </tr>
                         <tr>
-                            <td>English Premier League / La Liga</td>
-                            <td>England / Spain</td>
-                            <td>Aug 2025 - May 2026</td>
-                        </tr>
-                        <tr>
-                            <td>UEFA Champions League</td>
-                            <td>Europe</td>
-                            <td>Sep 2025 - May 2026</td>
-                        </tr>
-                        <tr>
-                            <td>FIFA World Cup</td>
+                            <td>FIFA World Cup 2026</td>
                             <td>USA, Canada, Mexico</td>
                             <td>Jun - Jul 2026</td>
-                        </tr>
-                        <tr>
-                            <td>French Open</td>
-                            <td>Paris, France</td>
-                            <td>May - Jun 2026</td>
+                            <td><span class="event-type sports">Sports</span></td>
                         </tr>
                         <tr>
                             <td>Wimbledon</td>
                             <td>London, UK</td>
                             <td>Jun - Jul 2026</td>
+                            <td><span class="event-type sports">Sports</span></td>
                         </tr>
                         <tr>
                             <td>Abu Dhabi GP</td>
                             <td>Abu Dhabi, UAE</td>
-                            <td>Dec 2025</td>
+                            <td>Dec 2026</td>
+                            <td><span class="event-type sports">Sports</span></td>
+                        </tr>
+                        <!-- Music Events -->
+                        <tr>
+                            <td>Lollapalooza India 2026 - Ft. Linkin Park</td>
+                            <td>Mumbai</td>
+                            <td>Jan 2026</td>
+                            <td><span class="event-type music">Music</span></td>
                         </tr>
                         <tr>
-                            <td>Azerbaijan GP</td>
-                            <td>Baku, Azerbaijan</td>
-                            <td>Sep 2026</td>
+                            <td>AR Rahman - Haazri</td>
+                            <td>Mumbai</td>
+                            <td>Jan 2026</td>
+                            <td><span class="event-type music">Music</span></td>
+                        </tr>
+                        <tr>
+                            <td>Karan Aujla</td>
+                            <td>Mumbai, Pune, Chandigarh, Indore, Bangalore</td>
+                            <td>Mar 2026</td>
+                            <td><span class="event-type music">Music</span></td>
+                        </tr>
+                        <tr>
+                            <td>Calvin Harris</td>
+                            <td>Mumbai, Delhi, Bangalore</td>
+                            <td>Apr 2026</td>
+                            <td><span class="event-type music">Music</span></td>
+                        </tr>
+                        <tr>
+                            <td>Tomorrowland Thailand 2026</td>
+                            <td>Pattaya - Thailand</td>
+                            <td>Dec 2026</td>
+                            <td><span class="event-type music">Music</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -467,7 +474,6 @@
                 <div class="footer-brand">
                     <img src="images/TT_LOGO.png" alt="Ticket Troops" style="height: 80px; width: auto; margin-bottom: 15px;">
                     <p>Your Gateway to Exclusive Global Experiences</p>
-                    <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">Offices in Mumbai, Delhi, Ahmedabad</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -478,11 +484,20 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer-offices">
+                <p>Office: Mumbai | Delhi | Ahmedabad</p>
+            </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Ticket Troops. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918828188222" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat with us</span>
+    </a>
 
     <script src="js/script.js"></script>
 </body>

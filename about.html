@@ -75,27 +75,32 @@
     <!-- PREMIUM HEADER -->
     <header class="premium-header" id="header">
         <div class="header-inner">
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+            </button>
+
+            <!-- Logo -->
             <a href="/" class="logo">
                 <img src="images/TT_LOGO.png" alt="Ticket Troops" class="logo-img">
             </a>
+
+            <!-- Navigation Container -->
             <nav class="nav-container">
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
                     <li><a href="/about" class="active">About Us</a></li>
-                    <li><a href="/#experiences">Services</a></li>
                     <li><a href="/events">Events</a></li>
                 </ul>
                 <div class="nav-divider"></div>
                 <div class="header-contact">
-                    <a href="/#contact" class="cta-button">
-                        <i class="fas fa-envelope"></i>
+                    <!-- CTA Button - WhatsApp -->
+                    <a href="https://wa.me/918828188222" class="cta-button" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
                         <span>Contact Us</span>
                     </a>
                 </div>
             </nav>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                <span class="hamburger-line"></span>
-            </button>
         </div>
     </header>
 
@@ -105,15 +110,10 @@
             <ul class="mobile-nav-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/about" class="active">About Us</a></li>
-                <li><a href="/#experiences">Services</a></li>
                 <li><a href="/events">Events</a></li>
             </ul>
             <div class="mobile-menu-contact">
-                <a href="tel:+918828188222" class="mobile-phone">
-                    <i class="fas fa-phone"></i>
-                    +91 88281 88222
-                </a>
-                <a href="/#contact" class="mobile-cta">Contact Us</a>
+                <a href="https://wa.me/918828188222" class="mobile-cta" target="_blank" rel="noopener noreferrer">Contact Us</a>
             </div>
         </div>
     </div>
@@ -364,7 +364,6 @@
                 <div class="footer-brand">
                     <img src="images/TT_LOGO.png" alt="Ticket Troops" style="height: 80px; width: auto; margin-bottom: 15px;">
                     <p>Your Gateway to Exclusive Global Experiences</p>
-                    <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">Offices in Mumbai, Delhi, Ahmedabad</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -375,11 +374,20 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer-offices">
+                <p>Office: Mumbai | Delhi | Ahmedabad</p>
+            </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Ticket Troops. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918828188222" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat with us</span>
+    </a>
 
     <script src="js/script.js"></script>
 </body>

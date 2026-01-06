@@ -280,6 +280,7 @@ body {
     cursor: pointer;
     padding: 0;
     transition: all 0.3s ease;
+    order: 3; /* Default order for desktop - not shown anyway */
 }
 
 .mobile-menu-btn:hover {
@@ -1031,6 +1032,177 @@ body {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* Event Type Badges */
+.event-type {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.event-type.sports {
+    background: rgba(76, 175, 80, 0.15);
+    color: #81c784;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.event-type.music {
+    background: rgba(156, 39, 176, 0.15);
+    color: #ce93d8;
+    border: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+/* Sports Subcategories */
+.event-type.sports-cricket {
+    background: rgba(33, 150, 243, 0.15);
+    color: #64b5f6;
+    border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+.event-type.sports-football {
+    background: rgba(76, 175, 80, 0.15);
+    color: #81c784;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.event-type.sports-tennis {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ffd54f;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.event-type.sports-f1 {
+    background: rgba(244, 67, 54, 0.15);
+    color: #e57373;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+/* Music Subcategories */
+.event-type.music-festival {
+    background: rgba(156, 39, 176, 0.15);
+    color: #ce93d8;
+    border: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+.event-type.music-intl-band {
+    background: rgba(0, 188, 212, 0.15);
+    color: #4dd0e1;
+    border: 1px solid rgba(0, 188, 212, 0.3);
+}
+
+.event-type.music-intl-artist {
+    background: rgba(255, 87, 34, 0.15);
+    color: #ff8a65;
+    border: 1px solid rgba(255, 87, 34, 0.3);
+}
+
+.event-type.music-bollywood {
+    background: rgba(233, 30, 99, 0.15);
+    color: #f48fb1;
+    border: 1px solid rgba(233, 30, 99, 0.3);
+}
+
+/* ========================================
+   FLOATING WHATSAPP BUTTON
+   ======================================== */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #25D366;
+    color: #ffffff;
+    padding: 14px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow:
+        0 4px 20px rgba(37, 211, 102, 0.4),
+        0 8px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+        0 6px 25px rgba(37, 211, 102, 0.5),
+        0 12px 40px rgba(0, 0, 0, 0.25);
+    background: #20bd5a;
+}
+
+.whatsapp-float i {
+    font-size: 24px;
+}
+
+.whatsapp-float span {
+    display: inline-block;
+}
+
+/* Pulse animation for attention */
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50px;
+    background: #25D366;
+    opacity: 0;
+    z-index: -1;
+    animation: whatsappPulse 2s ease-in-out infinite;
+}
+
+@keyframes whatsappPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.3;
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    .whatsapp-float i {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        padding: 16px;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        justify-content: center;
+    }
+
+    .whatsapp-float span {
+        display: none;
+    }
+
+    .whatsapp-float i {
+        font-size: 28px;
+    }
+}
+
 /* View All Events CTA Button */
 .view-all-btn {
     display: inline-flex;
@@ -1680,11 +1852,25 @@ body {
     transform: translateY(-3px);
 }
 
+.footer-offices {
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-offices p {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--tt-gold);
+    letter-spacing: 1px;
+}
+
 .footer-bottom {
     text-align: center;
-    padding-top: 30px;
-    margin-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+    margin-top: 0;
+    border-top: none;
 }
 
 .footer-bottom p {
@@ -1735,6 +1921,7 @@ body {
     .premium-header .header-inner {
         padding: 12px 20px;
         margin-top: 12px;
+        position: relative;
     }
 
     .nav-links,
@@ -1745,6 +1932,20 @@ body {
 
     .mobile-menu-btn {
         display: flex;
+        order: 1;
+        flex-shrink: 0;
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        order: 2;
+    }
+
+    .nav-container {
+        order: 3;
+        margin-left: auto;
     }
 
     .header-contact {
@@ -2004,12 +2205,22 @@ body {
         margin-right: 5px;
     }
 
+    .events-table td:nth-child(4)::before {
+        content: '🏷️ ';
+        font-size: 1rem;
+        margin-right: 5px;
+    }
+
     /* Style location and date */
     .events-table td:nth-child(2),
     .events-table td:nth-child(3) {
         color: rgba(255, 255, 255, 0.7);
         font-size: 0.95rem;
         padding: 8px 0;
+    }
+
+    .events-table td:nth-child(4) {
+        padding: 12px 0 0;
     }
 
     .footer-content {
@@ -2109,6 +2320,7 @@ body {
     .premium-header .header-inner {
         padding: 10px 16px;
         margin-top: 10px;
+        position: relative;
     }
 
     .logo-img {
@@ -2118,6 +2330,13 @@ body {
     .mobile-menu-btn {
         width: 42px;
         height: 42px;
+        order: 1;
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .cta-button {
