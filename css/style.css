@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+/* Remove default focus outlines and link styling */
+*:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
 html {
     overflow-x: hidden;
     width: 100%;
@@ -717,6 +731,16 @@ body {
     margin-bottom: 0;
 }
 
+/* Category Header with arrows */
+.category-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(229, 184, 42, 0.2);
+}
+
 .category-title {
     display: flex;
     align-items: center;
@@ -724,30 +748,83 @@ body {
     font-size: 1.4rem;
     color: var(--tt-gold);
     font-weight: 600;
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(229, 184, 42, 0.2);
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 .category-title i {
     font-size: 1.2rem;
 }
 
-/* Experience Grid */
+/* Carousel Navigation - Top Right */
+.carousel-nav {
+    display: flex;
+    gap: 10px;
+}
+
+/* Carousel Arrow Buttons */
+.exp-carousel-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(229, 184, 42, 0.15);
+    border: 1px solid rgba(229, 184, 42, 0.3);
+    color: var(--tt-gold);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.exp-carousel-arrow:hover {
+    background: var(--tt-gold);
+    color: #1c1549;
+    transform: scale(1.05);
+}
+
+.exp-carousel-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.exp-carousel-arrow i {
+    font-size: 14px;
+}
+
+/* Experience Carousel Container */
+.experience-carousel {
+    position: relative;
+}
+
+/* Experience Grid - Now horizontal scroll */
 .experience-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 10px 0;
+}
+
+.experience-grid::-webkit-scrollbar {
+    display: none;
 }
 
 /* Experience Card */
 .experience-card {
+    flex: 0 0 320px;
+    min-width: 320px;
     background: #392a70;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
 }
 
 .experience-card:hover {
@@ -813,11 +890,7 @@ body {
 }
 
 
-/* Show 3 cards per row for Shows and Meet & Greet */
-.experience-category:nth-child(3) .experience-grid,
-.experience-category:nth-child(4) .experience-grid {
-    grid-template-columns: repeat(3, 1fr);
-}
+/* Cards in all carousels use same width */
 
 .clients {
     padding: 80px 0;
@@ -1113,7 +1186,7 @@ body {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 1000;
+    z-index: 9999;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -1185,13 +1258,17 @@ body {
 
 @media (max-width: 480px) {
     .whatsapp-float {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
         bottom: 20px;
         right: 20px;
-        padding: 16px;
+        padding: 0;
         border-radius: 50%;
         width: 60px;
         height: 60px;
         justify-content: center;
+        align-items: center;
     }
 
     .whatsapp-float span {
@@ -1200,6 +1277,7 @@ body {
 
     .whatsapp-float i {
         font-size: 28px;
+        margin: 0;
     }
 }
 
@@ -1879,13 +1957,9 @@ body {
 }
 
 @media (max-width: 1024px) {
-    .experience-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .experience-category:nth-child(3) .experience-grid,
-    .experience-category:nth-child(4) .experience-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .experience-card {
+        flex: 0 0 280px;
+        min-width: 280px;
     }
 }
 
@@ -2034,14 +2108,22 @@ body {
         font-size: 0.9rem;
     }
 
-    .experience-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+    .experience-card {
+        flex: 0 0 260px;
+        min-width: 260px;
     }
 
-    .experience-category:nth-child(3) .experience-grid,
-    .experience-category:nth-child(4) .experience-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .category-header {
+        margin-bottom: 20px;
+    }
+
+    .exp-carousel-arrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .exp-carousel-arrow i {
+        font-size: 12px;
     }
 
     .section-subtitle {
@@ -2162,65 +2244,92 @@ body {
         display: block;
     }
 
+    /* Two-line card layout using flexbox */
     .events-table tr {
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
         background: #392a70;
         border-radius: 15px;
-        padding: 20px;
-        margin-bottom: 20px;
+        padding: 16px 20px;
+        margin-bottom: 15px;
         box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(255, 255, 255, 0.08);
+        gap: 8px 12px;
     }
 
-    /* Stack table cells vertically */
+    /* Base cell styles */
     .events-table td {
-        display: block;
+        display: inline-flex;
+        align-items: center;
         text-align: left;
-        padding: 10px 0;
+        padding: 0;
         border: none;
         position: relative;
         color: var(--tt-text-white);
     }
 
-    /* First cell (Event name) - larger and bold */
+    /* Line 1: Event name - takes remaining space */
     .events-table td:first-child {
-        font-size: 1.1rem;
+        order: 1;
+        flex: 1;
+        font-size: 1.05rem;
         font-weight: 600;
         color: var(--tt-gold);
-        padding-bottom: 15px;
-        border-bottom: 1px solid rgba(229, 184, 42, 0.3);
-        margin-bottom: 10px;
+        min-width: 0;
+        padding-right: 10px;
     }
 
-    /* Add labels using CSS pseudo-elements */
+    /* Line 1: Type tag - sits next to event name */
+    .events-table td:nth-child(4) {
+        order: 2;
+        flex-shrink: 0;
+    }
+
+    /* Line 2: Location */
+    .events-table td:nth-child(2) {
+        order: 3;
+        flex: 1;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.9rem;
+        min-width: 0;
+    }
+
     .events-table td:nth-child(2)::before {
         content: '📍 ';
-        font-size: 1rem;
-        margin-right: 5px;
+        font-size: 0.85rem;
+        margin-right: 4px;
+        flex-shrink: 0;
+    }
+
+    /* Line 2: Date - sits next to location */
+    .events-table td:nth-child(3) {
+        order: 4;
+        flex-shrink: 0;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.9rem;
+        text-align: right;
     }
 
     .events-table td:nth-child(3)::before {
         content: '📅 ';
-        font-size: 1rem;
-        margin-right: 5px;
+        font-size: 0.85rem;
+        margin-right: 4px;
     }
 
-    .events-table td:nth-child(4)::before {
-        content: '🏷️ ';
-        font-size: 1rem;
-        margin-right: 5px;
+    /* Force line break after type tag */
+    .events-table td:nth-child(4)::after {
+        content: '';
+        flex-basis: 100%;
+        height: 0;
     }
 
-    /* Style location and date */
-    .events-table td:nth-child(2),
-    .events-table td:nth-child(3) {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.95rem;
-        padding: 8px 0;
-    }
-
-    .events-table td:nth-child(4) {
-        padding: 12px 0 0;
+    /* Line break element between line 1 and line 2 */
+    .events-table tr::after {
+        content: '';
+        order: 2;
+        flex-basis: 100%;
+        height: 8px;
     }
 
     .footer-content {
@@ -2290,14 +2399,27 @@ body {
         display: none;
     }
 
-    .experience-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    .experience-card {
+        flex: 0 0 240px;
+        min-width: 240px;
     }
 
-    .experience-category:nth-child(3) .experience-grid,
-    .experience-category:nth-child(4) .experience-grid {
-        grid-template-columns: 1fr;
+    .category-header {
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+    }
+
+    .carousel-nav {
+        gap: 8px;
+    }
+
+    .exp-carousel-arrow {
+        width: 32px;
+        height: 32px;
+    }
+
+    .exp-carousel-arrow i {
+        font-size: 11px;
     }
 
     .section-subtitle {
@@ -2309,7 +2431,7 @@ body {
     }
 
     .experience-card .card-image {
-        height: 200px;
+        height: 150px;
     }
 
     /* Small Mobile Header */
@@ -2376,19 +2498,23 @@ body {
 
     /* Event cards refinement for extra small screens */
     .events-table tr {
-        padding: 15px;
-        margin-bottom: 15px;
+        padding: 14px 16px;
+        margin-bottom: 12px;
+        gap: 6px 10px;
     }
 
     .events-table td:first-child {
-        font-size: 1rem;
-        padding-bottom: 12px;
+        font-size: 0.95rem;
     }
 
     .events-table td:nth-child(2),
     .events-table td:nth-child(3) {
-        font-size: 0.9rem;
-        padding: 6px 0;
+        font-size: 0.85rem;
+    }
+
+    .events-table td:nth-child(2)::before,
+    .events-table td:nth-child(3)::before {
+        font-size: 0.8rem;
     }
 }
 

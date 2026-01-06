@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hero Carousel
     initHeroCarousel();
 
+    // Experience Carousels
+    initExperienceCarousels();
+
     // ========================================
     // PREMIUM HEADER - Scroll Effect
     // ========================================
@@ -310,4 +313,43 @@ function initHeroCarousel() {
 
     // Start auto-play
     startAutoPlay();
+}
+
+// Experience Carousel Functionality
+function initExperienceCarousels() {
+    const categories = document.querySelectorAll('.experience-category');
+
+    categories.forEach(category => {
+        const grid = category.querySelector('.experience-grid');
+        const prevBtn = category.querySelector('.exp-carousel-prev');
+        const nextBtn = category.querySelector('.exp-carousel-next');
+
+        if (!grid || !prevBtn || !nextBtn) return;
+
+        const cardWidth = 320 + 25; // card width + gap
+
+        function updateButtonStates() {
+            const scrollLeft = grid.scrollLeft;
+            const maxScroll = grid.scrollWidth - grid.clientWidth;
+
+            prevBtn.disabled = scrollLeft <= 0;
+            nextBtn.disabled = scrollLeft >= maxScroll - 5;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            grid.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            grid.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        });
+
+        grid.addEventListener('scroll', updateButtonStates);
+
+        // Initial state
+        updateButtonStates();
+
+        // Update on resize
+        window.addEventListener('resize', updateButtonStates);
+    });
 }
