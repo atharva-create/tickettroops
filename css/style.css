@@ -757,9 +757,9 @@ body {
     font-size: 1.2rem;
 }
 
-/* Carousel Navigation - Top Right */
+/* Carousel Navigation - Top Right (hidden on desktop, shown on mobile) */
 .carousel-nav {
-    display: flex;
+    display: none;
     gap: 10px;
 }
 
@@ -2115,6 +2115,10 @@ body {
 
     .category-header {
         margin-bottom: 20px;
+    }
+
+    .carousel-nav {
+        display: flex;
     }
 
     .exp-carousel-arrow {
