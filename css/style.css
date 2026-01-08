@@ -1219,29 +1219,6 @@ body {
     display: inline-block;
 }
 
-/* Pulse animation for attention */
-.whatsapp-float::before {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border-radius: 50px;
-    background: #25D366;
-    opacity: 0;
-    z-index: -1;
-    animation: whatsappPulse 2s ease-in-out infinite;
-}
-
-@keyframes whatsappPulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 0.3;
-    }
-}
-
 /* Mobile responsive */
 @media (max-width: 768px) {
     .whatsapp-float {
