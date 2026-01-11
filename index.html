@@ -37,6 +37,7 @@
     <link rel="apple-touch-icon" href="images/new_favicon.png">
     <style>html { background: #2e235d; }</style>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" as="image" href="images/1.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -144,22 +145,22 @@
         <div class="hero-carousel">
             <div class="carousel-slides">
                 <div class="carousel-slide active">
-                    <img src="images/1.jpg" alt="Event Experience 1">
+                    <img src="images/1.jpg" alt="Event Experience 1" loading="eager">
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/2.jpg" alt="Event Experience 2">
+                    <img src="images/2.jpg" alt="Event Experience 2" loading="lazy">
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/3.jpg" alt="Event Experience 3">
+                    <img src="images/3.jpg" alt="Event Experience 3" loading="lazy">
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/4.jpg" alt="Event Experience 4">
+                    <img src="images/4.jpg" alt="Event Experience 4" loading="lazy">
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/5.jpeg" alt="Event Experience 5">
+                    <img src="images/5.jpeg" alt="Event Experience 5" loading="lazy">
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/7.jpg" alt="Event Experience 7">
+                    <img src="images/7.jpg" alt="Event Experience 7" loading="lazy">
                 </div>
             </div>
 
@@ -224,7 +225,7 @@
                     <div class="experience-grid">
                         <a href="/events" class="experience-card">
                             <div class="card-image">
-                                <img src="images/Sports - Cricket.jpeg" alt="Cricket Events">
+                                <img src="images/Sports - Cricket.jpeg" alt="Cricket Events" loading="lazy">
                             </div>
                             <div class="card-content">
                                 <h4>Cricket</h4>
@@ -233,7 +234,7 @@
                         </a>
                         <a href="/events" class="experience-card">
                             <div class="card-image">
-                                <img src="images/Sports Football.jpeg" alt="Football Events">
+                                <img src="images/Sports Football.jpeg" alt="Football Events" loading="lazy">
                             </div>
                             <div class="card-content">
                                 <h4>Football</h4>
@@ -242,7 +243,7 @@
                         </a>
                         <a href="/events" class="experience-card">
                             <div class="card-image">
-                                <img src="images/Tennis.jpg" alt="Tennis Events">
+                                <img src="images/Tennis.jpg" alt="Tennis Events" loading="lazy">
                             </div>
                             <div class="card-content">
                                 <h4>Tennis</h4>
@@ -251,7 +252,7 @@
                         </a>
                         <a href="/events" class="experience-card">
                             <div class="card-image">
-                                <img src="images/1.jpg" alt="Formula 1 Racing Events">
+                                <img src="images/1.jpg" alt="Formula 1 Racing Events" loading="lazy">
                             </div>
                             <div class="card-content">
                                 <h4>Formula 1</h4>
@@ -282,7 +283,7 @@
                     <div class="experience-grid">
                         <a href="/events" class="experience-card">
                             <div class="card-image">
-                                <img src="images/Concerts.jpeg" alt="Concert Events">
+                                <img src="images/Concerts.jpeg" alt="Concert Events" loading="lazy">
                             </div>
                             <div class="card-content">
                                 <h4>Concerts</h4>
@@ -291,7 +292,7 @@
                         </a>
                         <a href="/events" class="experience-card">
                             <div class="card-image">
-                                <img src="images/2.jpg" alt="Festivals">
+                                <img src="images/2.jpg" alt="Festivals" loading="lazy">
                             </div>
                             <div class="card-content">
                                 <h4>Festivals</h4>
@@ -300,7 +301,7 @@
                         </a>
                         <a href="/events" class="experience-card">
                             <div class="card-image">
-                                <img src="images/Live Experiences.jpeg" alt="Live Shows">
+                                <img src="images/Live Experiences.jpeg" alt="Live Shows" loading="lazy">
                             </div>
                             <div class="card-content">
                                 <h4>Live Shows</h4>
@@ -331,7 +332,7 @@
                     <div class="experience-grid">
                         <a href="/events" class="experience-card">
                             <div class="card-image">
-                                <img src="images/3.jpg" alt="Sports Stars">
+                                <img src="images/3.jpg" alt="Sports Stars" loading="lazy">
                             </div>
                             <div class="card-content">
                                 <h4>Sports Stars</h4>
@@ -340,7 +341,7 @@
                         </a>
                         <a href="/events" class="experience-card">
                             <div class="card-image">
-                                <img src="images/5.jpeg" alt="Actors/Celebrities">
+                                <img src="images/5.jpeg" alt="Actors/Celebrities" loading="lazy">
                             </div>
                             <div class="card-content">
                                 <h4>Actors/Celebrities</h4>
@@ -349,7 +350,7 @@
                         </a>
                         <a href="/events" class="experience-card">
                             <div class="card-image">
-                                <img src="images/4.jpg" alt="Artists">
+                                <img src="images/4.jpg" alt="Artists" loading="lazy">
                             </div>
                             <div class="card-content">
                                 <h4>Artists</h4>
@@ -532,7 +533,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="images/TT_LOGO.png" alt="Ticket Troops" style="height: 80px; width: auto; margin-bottom: 15px;">
+                    <img src="images/TT_LOGO.png" alt="Ticket Troops" style="height: 80px; width: auto; margin-bottom: 15px;" loading="lazy">
                     <p>Your Gateway to Exclusive Global Experiences</p>
                 </div>
                 <div class="footer-links">
@@ -559,6 +560,6 @@
         <span>Chat with us</span>
     </a>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

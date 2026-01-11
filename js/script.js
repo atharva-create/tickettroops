@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Experience Carousels
     initExperienceCarousels();
 
+    // Lazy load images for performance
+    lazyLoadImages();
+
     // ========================================
     // PREMIUM HEADER - Scroll Effect
     // ========================================
