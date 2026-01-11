@@ -146,7 +146,46 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event Tabs Functionality
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
+    const typeFilter = document.getElementById('type-filter');
 
+    // Filter options for each tab
+    const filterOptions = {
+        sports: ['All Types', 'Cricket', 'Football', 'Tennis', 'Formula 1'],
+        music: ['All Types', 'Concerts', 'Festivals', 'Live Shows']
+    };
+
+    // Update filter options based on active tab
+    function updateFilterOptions(tab) {
+        if (!typeFilter) return;
+        const options = filterOptions[tab] || filterOptions.sports;
+        typeFilter.innerHTML = options.map(opt =>
+            `<option value="${opt === 'All Types' ? 'all' : opt}">${opt}</option>`
+        ).join('');
+    }
+
+    // Filter table rows based on selected type
+    function filterEvents() {
+        if (!typeFilter) return;
+        const selectedType = typeFilter.value;
+        const activeTab = document.querySelector('.tab-content.active');
+        if (!activeTab) return;
+
+        const rows = activeTab.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+            if (selectedType === 'all') {
+                row.style.display = '';
+            } else {
+                const typeCell = row.querySelector('.event-type');
+                if (typeCell && typeCell.textContent.trim() === selectedType) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    // Tab click handler
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
             const targetTab = this.getAttribute('data-tab');
@@ -158,8 +197,17 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add active class to clicked button and corresponding content
             this.classList.add('active');
             document.getElementById(`${targetTab}-tab`).classList.add('active');
+
+            // Update filter options and reset filter
+            updateFilterOptions(targetTab);
+            filterEvents();
         });
     });
+
+    // Filter change handler
+    if (typeFilter) {
+        typeFilter.addEventListener('change', filterEvents);
+    }
 
     // Add countdown for upcoming events - DISABLED
     // const eventRows = document.querySelectorAll('.events-table tbody tr');
