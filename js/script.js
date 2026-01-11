@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     const target = document.querySelector(href);
                     if (target) {
                         setTimeout(() => {
-                            const offsetTop = target.offsetTop - 100;
+                            const rect = target.getBoundingClientRect();
+                            const offsetTop = rect.top + window.scrollY - 100;
                             window.scrollTo({
                                 top: offsetTop,
                                 behavior: 'smooth'
