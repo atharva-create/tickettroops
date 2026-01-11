@@ -143,30 +143,124 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Event Tabs Functionality
+    // Event Tabs & Custom Dropdown Functionality
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
-    const typeFilter = document.getElementById('type-filter');
+    const categoryDropdown = document.getElementById('category-dropdown');
+    const typeDropdown = document.getElementById('type-dropdown');
 
-    // Filter options for each tab
-    const filterOptions = {
+    // Filter options for each category
+    const typeOptions = {
         sports: ['All Types', 'Cricket', 'Football', 'Tennis', 'Formula 1'],
         music: ['All Types', 'Concerts', 'Festivals', 'Live Shows']
     };
 
-    // Update filter options based on active tab
-    function updateFilterOptions(tab) {
-        if (!typeFilter) return;
-        const options = filterOptions[tab] || filterOptions.sports;
-        typeFilter.innerHTML = options.map(opt =>
-            `<option value="${opt === 'All Types' ? 'all' : opt}">${opt}</option>`
+    // Custom Dropdown Toggle
+    function initCustomDropdowns() {
+        const dropdowns = document.querySelectorAll('.custom-dropdown');
+
+        dropdowns.forEach(dropdown => {
+            const selected = dropdown.querySelector('.dropdown-selected');
+            const options = dropdown.querySelectorAll('.dropdown-option');
+
+            // Toggle dropdown on click
+            selected.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Close other dropdowns
+                dropdowns.forEach(d => {
+                    if (d !== dropdown) d.classList.remove('open');
+                });
+                dropdown.classList.toggle('open');
+            });
+
+            // Handle option selection
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    const value = option.dataset.value;
+                    const text = option.textContent;
+
+                    // Update selected text
+                    selected.querySelector('span').textContent = text;
+
+                    // Update active state
+                    options.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+
+                    // Close dropdown
+                    dropdown.classList.remove('open');
+
+                    // Handle category change
+                    if (dropdown.id === 'category-dropdown') {
+                        switchCategory(value);
+                    }
+
+                    // Handle type filter change
+                    if (dropdown.id === 'type-dropdown') {
+                        filterEvents(value);
+                    }
+                });
+            });
+        });
+
+        // Close dropdowns on outside click
+        document.addEventListener('click', () => {
+            dropdowns.forEach(d => d.classList.remove('open'));
+        });
+    }
+
+    // Switch category (also switches tabs)
+    function switchCategory(category) {
+        // Update tab buttons
+        tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.tab === category) {
+                btn.classList.add('active');
+            }
+        });
+
+        // Update tab contents
+        tabContents.forEach(content => content.classList.remove('active'));
+        const targetTab = document.getElementById(`${category}-tab`);
+        if (targetTab) targetTab.classList.add('active');
+
+        // Update type dropdown options
+        updateTypeOptions(category);
+    }
+
+    // Update type dropdown options based on category
+    function updateTypeOptions(category) {
+        if (!typeDropdown) return;
+        const options = typeOptions[category] || typeOptions.sports;
+        const optionsContainer = typeDropdown.querySelector('.dropdown-options');
+        const selectedSpan = typeDropdown.querySelector('.dropdown-selected span');
+
+        optionsContainer.innerHTML = options.map((opt, i) =>
+            `<div class="dropdown-option${i === 0 ? ' active' : ''}" data-value="${opt === 'All Types' ? 'all' : opt}">${opt}</div>`
         ).join('');
+
+        // Reset selected to "All Types"
+        selectedSpan.textContent = 'All Types';
+
+        // Re-attach click handlers to new options
+        optionsContainer.querySelectorAll('.dropdown-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const value = option.dataset.value;
+                const text = option.textContent;
+
+                selectedSpan.textContent = text;
+                optionsContainer.querySelectorAll('.dropdown-option').forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                typeDropdown.classList.remove('open');
+                filterEvents(value);
+            });
+        });
+
+        // Reset filter
+        filterEvents('all');
     }
 
     // Filter table rows based on selected type
-    function filterEvents() {
-        if (!typeFilter) return;
-        const selectedType = typeFilter.value;
+    function filterEvents(selectedType) {
         const activeTab = document.querySelector('.tab-content.active');
         if (!activeTab) return;
 
@@ -185,10 +279,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Tab click handler
+    // Tab click handler (keep for direct tab clicks)
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
             const targetTab = this.getAttribute('data-tab');
+
+            // Update category dropdown
+            if (categoryDropdown) {
+                const categoryOptions = categoryDropdown.querySelectorAll('.dropdown-option');
+                const categorySelected = categoryDropdown.querySelector('.dropdown-selected span');
+                categoryOptions.forEach(opt => {
+                    opt.classList.remove('active');
+                    if (opt.dataset.value === targetTab) {
+                        opt.classList.add('active');
+                        categorySelected.textContent = opt.textContent;
+                    }
+                });
+            }
 
             // Remove active class from all buttons and contents
             tabButtons.forEach(btn => btn.classList.remove('active'));
@@ -198,16 +305,13 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
             document.getElementById(`${targetTab}-tab`).classList.add('active');
 
-            // Update filter options and reset filter
-            updateFilterOptions(targetTab);
-            filterEvents();
+            // Update type options
+            updateTypeOptions(targetTab);
         });
     });
 
-    // Filter change handler
-    if (typeFilter) {
-        typeFilter.addEventListener('change', filterEvents);
-    }
+    // Initialize custom dropdowns
+    initCustomDropdowns();
 
     // Add countdown for upcoming events - DISABLED
     // const eventRows = document.querySelectorAll('.events-table tbody tr');

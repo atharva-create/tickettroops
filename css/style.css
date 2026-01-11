@@ -1045,7 +1045,7 @@ body {
 .event-filters {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     margin-top: 30px;
     flex-wrap: wrap;
 }
@@ -1056,44 +1056,95 @@ body {
     gap: 12px;
 }
 
-.filter-group label {
+.filter-label {
     color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
     font-weight: 500;
 }
 
-.filter-group select {
-    padding: 12px 20px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
+/* Custom Dropdown */
+.custom-dropdown {
+    position: relative;
+    min-width: 180px;
+}
+
+.dropdown-selected {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
     color: var(--tt-text-white);
-    border: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 14px;
-    font-family: inherit;
     cursor: pointer;
-    min-width: 150px;
     transition: all 0.3s ease;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23C9A227' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    padding-right: 40px;
+    backdrop-filter: blur(10px);
 }
 
-.filter-group select:hover {
+.dropdown-selected:hover {
     border-color: rgba(229, 184, 42, 0.5);
+    background: rgba(255, 255, 255, 0.12);
 }
 
-.filter-group select:focus {
-    outline: none;
+.dropdown-selected i {
+    color: var(--tt-gold);
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.custom-dropdown.open .dropdown-selected {
     border-color: var(--tt-gold);
-    box-shadow: 0 0 0 3px rgba(229, 184, 42, 0.1);
+    background: rgba(255, 255, 255, 0.12);
 }
 
-.filter-group select option {
-    background: #392a70;
+.custom-dropdown.open .dropdown-selected i {
+    transform: rotate(180deg);
+}
+
+.dropdown-options {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: rgba(57, 42, 112, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.custom-dropdown.open .dropdown-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-option {
+    padding: 12px 16px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dropdown-option:hover {
+    background: rgba(229, 184, 42, 0.15);
     color: var(--tt-text-white);
+}
+
+.dropdown-option.active {
+    background: rgba(229, 184, 42, 0.2);
+    color: var(--tt-gold);
+    font-weight: 500;
 }
 
 @keyframes fadeIn {
@@ -2338,7 +2389,7 @@ body {
         gap: 8px;
     }
 
-    .filter-group select {
+    .custom-dropdown {
         width: 100%;
     }
 
