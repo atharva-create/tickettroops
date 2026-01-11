@@ -1749,6 +1749,50 @@ body {
     margin-bottom: 30px;
 }
 
+/* Office Addresses */
+.office-addresses {
+    margin-bottom: 30px;
+}
+
+.office-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.office-item i {
+    color: var(--tt-gold);
+    font-size: 1.2rem;
+    width: 30px;
+    margin-top: 4px;
+}
+
+.office-details {
+    flex: 1;
+}
+
+.office-details strong {
+    color: var(--tt-gold);
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.office-details p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Form Header */
+.contact-form h3 {
+    font-size: 1.5rem;
+    color: var(--tt-text-white);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
 .contact-item {
     display: flex;
     align-items: center;
