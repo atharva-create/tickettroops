@@ -143,8 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Event Tabs & Custom Dropdown Functionality
-    const tabButtons = document.querySelectorAll('.tab-button');
+    // Event Filters & Custom Dropdown Functionality
     const tabContents = document.querySelectorAll('.tab-content');
     const categoryDropdown = document.getElementById('category-dropdown');
     const typeDropdown = document.getElementById('type-dropdown');
@@ -208,16 +207,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Switch category (also switches tabs)
+    // Switch category
     function switchCategory(category) {
-        // Update tab buttons
-        tabButtons.forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.dataset.tab === category) {
-                btn.classList.add('active');
-            }
-        });
-
         // Update tab contents
         tabContents.forEach(content => content.classList.remove('active'));
         const targetTab = document.getElementById(`${category}-tab`);
@@ -278,37 +269,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // Tab click handler (keep for direct tab clicks)
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const targetTab = this.getAttribute('data-tab');
-
-            // Update category dropdown
-            if (categoryDropdown) {
-                const categoryOptions = categoryDropdown.querySelectorAll('.dropdown-option');
-                const categorySelected = categoryDropdown.querySelector('.dropdown-selected span');
-                categoryOptions.forEach(opt => {
-                    opt.classList.remove('active');
-                    if (opt.dataset.value === targetTab) {
-                        opt.classList.add('active');
-                        categorySelected.textContent = opt.textContent;
-                    }
-                });
-            }
-
-            // Remove active class from all buttons and contents
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-
-            // Add active class to clicked button and corresponding content
-            this.classList.add('active');
-            document.getElementById(`${targetTab}-tab`).classList.add('active');
-
-            // Update type options
-            updateTypeOptions(targetTab);
-        });
-    });
 
     // Initialize custom dropdowns
     initCustomDropdowns();
