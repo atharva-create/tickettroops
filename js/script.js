@@ -48,10 +48,26 @@ document.addEventListener('DOMContentLoaded', function() {
         // Close mobile menu when clicking a link
         const mobileLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-cta');
         mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
                 mobileMenuBtn.classList.remove('active');
                 mobileMenu.classList.remove('active');
                 document.body.style.overflow = '';
+
+                // Handle anchor scrolling after menu closes
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        setTimeout(() => {
+                            const offsetTop = target.offsetTop - 100;
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }, 300);
+                    }
+                }
             });
         });
 
@@ -272,6 +288,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize custom dropdowns
     initCustomDropdowns();
+
+    // Apply filters from URL parameters (for deep linking from homepage cards)
+    applyFiltersFromURL();
+
+    // Function to apply filters based on URL parameters
+    function applyFiltersFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        const type = urlParams.get('type');
+
+        if (category && categoryDropdown) {
+            // Switch to the selected category
+            switchCategory(category);
+
+            // Update category dropdown UI
+            const categoryOptions = categoryDropdown.querySelectorAll('.dropdown-option');
+            const categorySelected = categoryDropdown.querySelector('.dropdown-selected span');
+            categoryOptions.forEach(opt => {
+                opt.classList.remove('active');
+                if (opt.dataset.value === category) {
+                    opt.classList.add('active');
+                    categorySelected.textContent = opt.textContent;
+                }
+            });
+        }
+
+        if (type && typeDropdown) {
+            // Apply type filter
+            filterEvents(type);
+
+            // Update type dropdown UI
+            const typeOptions = typeDropdown.querySelectorAll('.dropdown-option');
+            const typeSelected = typeDropdown.querySelector('.dropdown-selected span');
+            typeOptions.forEach(opt => {
+                opt.classList.remove('active');
+                if (opt.dataset.value === type) {
+                    opt.classList.add('active');
+                    typeSelected.textContent = opt.textContent;
+                }
+            });
+        }
+    }
 
     // Add countdown for upcoming events - DISABLED
     // const eventRows = document.querySelectorAll('.events-table tbody tr');
