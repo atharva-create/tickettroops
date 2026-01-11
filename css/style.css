@@ -1790,7 +1790,7 @@ body {
     font-size: 1.5rem;
     color: var(--tt-text-white);
     margin-bottom: 25px;
-    text-align: center;
+    text-align: left;
 }
 
 .contact-item {
