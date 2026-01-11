@@ -2071,6 +2071,22 @@ body {
 }
 
 @media (max-width: 768px) {
+    /* Reduce section padding for mobile */
+    .experiences,
+    .clients,
+    .corporate,
+    .upcoming-events,
+    .why-choose,
+    .trusted-clients,
+    .about-us,
+    .contact {
+        padding: 40px 0;
+    }
+
+    .footer {
+        padding: 40px 0 20px;
+    }
+
     /* Hero & Carousel Mobile Styles */
     .hero {
         height: 60vh;
@@ -3169,7 +3185,7 @@ body {
     }
 
     .journey-section-v3 {
-        padding: 80px 24px 100px;
+        padding: 50px 20px;
     }
 
     .section-title-v3 {
@@ -3187,7 +3203,7 @@ body {
     }
 
     .why-choose-section-v3 {
-        padding: 100px 24px 80px;
+        padding: 50px 20px;
     }
 
     .section-title-large {
@@ -3215,7 +3231,7 @@ body {
     }
 
     .clients-section-v3 {
-        padding: 80px 24px 100px;
+        padding: 50px 20px;
     }
 
     .clients-track {
@@ -3233,7 +3249,7 @@ body {
     }
 
     .cta-section-v3 {
-        padding: 80px 24px;
+        padding: 50px 20px;
     }
 
     .cta-section-v3 h2 {
