@@ -130,7 +130,7 @@
         <div class="about-hero-content">
             <p class="hero-eyebrow">About Ticket Troops</p>
             <h1 class="hero-title">Your Gateway to <span>Exclusive Global Experiences</span></h1>
-            <p class="hero-description">Ticket Troops is a premium experiential travel and events company, crafting bespoke global experiences that connect brands, teams, leaders, and fans through sports, concerts, and entertainment.</p>
+            <p class="hero-description">Ticket Troops is a premium experiential travel and global events company, that connects fans, leaders and teams through sports, concerts and entertainment.</p>
 
             <!-- Three Pillars -->
             <div class="hero-pillars">
@@ -141,7 +141,7 @@
                             <path d="M8 12l2 2 4-4"/>
                         </svg>
                     </div>
-                    <span>Sports Events</span>
+                    <span>Sports</span>
                 </div>
                 <div class="pillar">
                     <div class="pillar-icon">
@@ -151,7 +151,7 @@
                             <circle cx="18" cy="16" r="3"/>
                         </svg>
                     </div>
-                    <span>Concerts & Entertainment</span>
+                    <span>Music</span>
                 </div>
                 <div class="pillar">
                     <div class="pillar-icon">
@@ -161,7 +161,7 @@
                             <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
                         </svg>
                     </div>
-                    <span>Celebrity Meet & Greet</span>
+                    <span>Icons</span>
                 </div>
             </div>
         </div>
@@ -327,32 +327,69 @@
         </div>
     </section>
 
-    <!-- CTA SECTION -->
-    <section class="cta-section-v3">
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
         <div class="container">
-
-            <h2>Let's Curate Your Next <span>Global Experience</span></h2>
-            <p>Connect with our team today.</p>
-
-            <div class="cta-contact">
-                <a href="tel:+918828188222" class="cta-phone">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/>
-                    </svg>
-                    +91 88281 88222
-                </a>
-                <a href="mailto:sales@tickettroops.com" class="cta-email">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                    sales@tickettroops.com
-                </a>
+            <h2 class="section-title-large">Let's Curate Your Next Global Experience</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="office-addresses">
+                        <div class="office-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="office-details">
+                                <strong>Mumbai</strong>
+                                <p>S-19, Express Zone, Opposite Oberoil Mall, W. E. Highway, Goregaon East, Mumbai - 400063</p>
+                            </div>
+                        </div>
+                        <div class="office-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="office-details">
+                                <strong>New Delhi</strong>
+                                <p>16, New Market, Malviya Nagar, New Delhi - 110017</p>
+                            </div>
+                        </div>
+                        <div class="office-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="office-details">
+                                <strong>Ahmedabad</strong>
+                                <p>001 Workflo Mauryansh Elanza, Near Parekh's Hospital, 132 Feet Ring Rd, Satellite, Ahmedabad - 380015</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:sales@tickettroops.com">sales@tickettroops.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+918828188222">+91 88281 88222</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Connect with our team today</h3>
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="dbfdb2cf-1400-4594-a71e-511324ea062d">
+                        <input type="hidden" name="subject" value="New Contact Form Submission - Ticket Troops">
+                        <input type="hidden" name="from_name" value="Ticket Troops Website">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Your Phone">
+                        <select name="service" required>
+                            <option value="">Select Service</option>
+                            <option value="Sports Events">Sports Events</option>
+                            <option value="Music Events">Music Events</option>
+                            <option value="Icons Meet & Greet">Icons Meet & Greet</option>
+                            <option value="MICE Travel Packages">MICE Travel Packages</option>
+                            <option value="Corporate Retreats">Corporate Retreats</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
             </div>
-
-            <a href="/#contact" class="cta-button-v3">
-                Get in Touch
-            </a>
-
         </div>
     </section>
     </main>
