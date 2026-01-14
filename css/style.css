@@ -666,6 +666,58 @@ body {
     }
 }
 
+/* Hero CTA Button */
+.hero-cta-btn {
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #E5B82A 0%, #f2cc55 50%, #E5B82A 100%);
+    background-size: 200% 200%;
+    color: #1a1a2e;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    z-index: 10;
+    box-shadow:
+        0 4px 20px rgba(229, 184, 42, 0.4),
+        0 8px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.hero-cta-btn:hover {
+    transform: translateX(-50%) translateY(-3px) scale(1.02);
+    box-shadow:
+        0 6px 25px rgba(229, 184, 42, 0.5),
+        0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.hero-cta-btn i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.hero-cta-btn:hover i {
+    transform: translateX(4px);
+}
+
 /* ============================================
    EXPERIENCES SECTION
    ============================================ */
@@ -2226,6 +2278,12 @@ body {
         font-size: 0.9rem;
     }
 
+    .hero-cta-btn {
+        bottom: 150px;
+        padding: 14px 28px;
+        font-size: 14px;
+    }
+
     .experience-card {
         flex: 0 0 260px;
         min-width: 260px;
@@ -2532,6 +2590,17 @@ body {
 
     .scroll-down span {
         display: none;
+    }
+
+    .hero-cta-btn {
+        bottom: 120px;
+        padding: 12px 24px;
+        font-size: 13px;
+        gap: 10px;
+    }
+
+    .hero-cta-btn i {
+        font-size: 12px;
     }
 
     .experience-card {
