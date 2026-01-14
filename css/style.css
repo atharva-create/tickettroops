@@ -623,7 +623,7 @@ body {
 /* Scroll Down CTA */
 .scroll-down {
     position: absolute;
-    bottom: 85px;
+    bottom: 64px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
