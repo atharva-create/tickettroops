@@ -268,17 +268,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update type dropdown options
         updateTypeOptions(category);
 
-        // Reset month filter
-        if (monthDropdown) {
-            const selectedSpan = monthDropdown.querySelector('.dropdown-selected span');
-            const options = monthDropdown.querySelectorAll('.dropdown-option');
-            selectedSpan.textContent = 'All Months';
-            options.forEach(opt => {
-                opt.classList.remove('active');
-                if (opt.dataset.value === 'all') opt.classList.add('active');
-            });
-            currentMonthFilter = 'all';
-        }
+        // Re-apply month filter to new tab
+        applyFilters();
     }
 
     // Update type dropdown options based on category
