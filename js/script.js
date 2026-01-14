@@ -122,7 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Smooth scrolling for navigation links (only for same-page anchors)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Exclude .hero-cta-btn which has its own handler with correct offset calculation
+    document.querySelectorAll('a[href^="#"]:not(.hero-cta-btn)').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             // Only prevent default and smooth scroll if the target exists on current page
