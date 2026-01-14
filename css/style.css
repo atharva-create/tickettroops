@@ -2219,6 +2219,7 @@ body {
         width: 48px;
         height: 48px;
         border-radius: 50%;
+        top: 45%;
     }
 
     .carousel-arrow i {
@@ -2234,7 +2235,7 @@ body {
     }
 
     .carousel-dots {
-        bottom: 85px;
+        bottom: 50px;
         padding: 8px 14px;
         gap: 8px;
     }
@@ -2562,6 +2563,7 @@ body {
         width: 42px;
         height: 42px;
         border-radius: 50%;
+        top: 42%;
     }
 
     .carousel-arrow i {
@@ -2577,7 +2579,7 @@ body {
     }
 
     .carousel-dots {
-        bottom: 70px;
+        bottom: 40px;
         padding: 6px 12px;
         gap: 6px;
     }
