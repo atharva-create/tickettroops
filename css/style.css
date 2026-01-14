@@ -674,11 +674,11 @@ body {
     display: inline-block;
     background: #E5B82A;
     color: #1a1a2e;
-    padding: 24px 55px;
+    padding: 30px 70px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 26px;
+    font-size: 32px;
     z-index: 10;
     transition: all 0.3s ease;
 }
@@ -2251,8 +2251,8 @@ body {
     .hero-cta-btn {
         bottom: 45px;
         right: 35px;
-        padding: 18px 40px;
-        font-size: 18px;
+        padding: 22px 50px;
+        font-size: 22px;
     }
 
     .experience-card {
@@ -2565,9 +2565,9 @@ body {
 
     .hero-cta-btn {
         bottom: 35px;
-        right: 20px;
-        padding: 14px 28px;
-        font-size: 15px;
+        right: 15px;
+        padding: 16px 35px;
+        font-size: 17px;
     }
 
     .experience-card {
