@@ -2219,7 +2219,7 @@ body {
         width: 48px;
         height: 48px;
         border-radius: 50%;
-        top: calc(50% + 40px);
+        top: calc(50% + 25px);
     }
 
     .carousel-arrow i {
@@ -2563,7 +2563,7 @@ body {
         width: 42px;
         height: 42px;
         border-radius: 50%;
-        top: calc(50% + 35px);
+        top: calc(50% + 20px);
     }
 
     .carousel-arrow i {
