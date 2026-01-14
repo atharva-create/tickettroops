@@ -669,16 +669,16 @@ body {
 /* Hero CTA Button */
 .hero-cta-btn {
     position: absolute;
-    bottom: 58px;
-    right: 100px;
+    bottom: 45px;
+    right: 80px;
     display: inline-block;
     background: #E5B82A;
     color: #1a1a2e;
-    padding: 14px 28px;
+    padding: 18px 40px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 22px;
     font-style: italic;
     z-index: 10;
     transition: all 0.3s ease;
@@ -2250,10 +2250,10 @@ body {
     }
 
     .hero-cta-btn {
-        bottom: 50px;
-        right: 30px;
-        padding: 12px 24px;
-        font-size: 14px;
+        bottom: 45px;
+        right: 25px;
+        padding: 14px 30px;
+        font-size: 16px;
     }
 
     .experience-card {
@@ -2565,10 +2565,10 @@ body {
     }
 
     .hero-cta-btn {
-        bottom: 40px;
-        right: 15px;
-        padding: 10px 18px;
-        font-size: 12px;
+        bottom: 35px;
+        right: 12px;
+        padding: 12px 22px;
+        font-size: 14px;
     }
 
     .experience-card {
