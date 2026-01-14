@@ -493,7 +493,7 @@ body {
     object-fit: cover;
 }
 
-/* Hero Overlay Gradient - Premium fade to section background */
+/* Hero Overlay Gradient - Light top tint only */
 .hero-overlay {
     position: absolute;
     inset: 0;
@@ -505,15 +505,8 @@ body {
         rgba(22, 16, 58, 0.4) 0%,
         rgba(22, 16, 58, 0.1) 5%,
         rgba(22, 16, 58, 0) 10%,
-
-        /* Clear zone - show image fully */
-        rgba(22, 16, 58, 0) 70%,
-
-        /* Compact fade to section background #2e235d */
-        rgba(22, 16, 58, 0.3) 80%,
-        rgba(22, 16, 58, 0.6) 88%,
-        rgba(22, 16, 58, 0.85) 94%,
-        #2e235d 100%
+        /* Rest is transparent */
+        rgba(22, 16, 58, 0) 100%
     );
 }
 
@@ -2199,11 +2192,7 @@ body {
             rgba(22, 16, 58, 0.35) 0%,
             rgba(22, 16, 58, 0.1) 5%,
             rgba(22, 16, 58, 0) 10%,
-            rgba(22, 16, 58, 0) 65%,
-            rgba(22, 16, 58, 0.35) 78%,
-            rgba(22, 16, 58, 0.7) 88%,
-            #2e235d 96%,
-            #2e235d 100%
+            rgba(22, 16, 58, 0) 100%
         );
     }
 
@@ -2513,11 +2502,7 @@ body {
             rgba(22, 16, 58, 0.3) 0%,
             rgba(22, 16, 58, 0.1) 5%,
             rgba(22, 16, 58, 0) 10%,
-            rgba(22, 16, 58, 0) 60%,
-            rgba(22, 16, 58, 0.4) 76%,
-            rgba(22, 16, 58, 0.75) 88%,
-            #2e235d 96%,
-            #2e235d 100%
+            rgba(22, 16, 58, 0) 100%
         );
     }
 
