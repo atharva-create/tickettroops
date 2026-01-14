@@ -2261,17 +2261,17 @@ body {
 
     /* Show mobile CTA below carousel */
     .mobile-hero-cta {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
+        display: block;
+        padding: 15px 20px;
         background: #2e235d;
     }
 
     .hero-cta-btn-mobile {
-        display: inline-block;
+        display: block;
+        width: 100%;
         background: #E5B82A;
         color: #1a1a2e;
-        padding: 18px 50px;
+        padding: 18px 20px;
         border-radius: 8px;
         text-decoration: none;
         font-weight: 600;
@@ -2279,6 +2279,7 @@ body {
         cursor: pointer;
         transition: all 0.3s ease;
         text-align: center;
+        box-sizing: border-box;
     }
 
     .hero-cta-btn-mobile:hover {
@@ -2596,7 +2597,7 @@ body {
 
     /* Smaller mobile CTA on very small screens */
     .hero-cta-btn-mobile {
-        padding: 16px 40px;
+        padding: 16px 20px;
         font-size: 16px;
     }
 
