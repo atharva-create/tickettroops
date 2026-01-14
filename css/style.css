@@ -680,6 +680,7 @@ body {
     font-weight: 600;
     font-size: 32px;
     z-index: 10;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
