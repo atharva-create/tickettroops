@@ -587,7 +587,7 @@ body {
 /* Pagination Dots */
 .carousel-dots {
     position: absolute;
-    bottom: 80px;
+    bottom: 140px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -623,7 +623,7 @@ body {
 /* Scroll Down CTA */
 .scroll-down {
     position: absolute;
-    bottom: 24px;
+    bottom: 84px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -2215,7 +2215,7 @@ body {
     }
 
     .carousel-dots {
-        bottom: 55px;
+        bottom: 100px;
         padding: 8px 14px;
         gap: 8px;
     }
@@ -2226,7 +2226,7 @@ body {
     }
 
     .scroll-down {
-        bottom: 12px;
+        bottom: 55px;
         font-size: 11px;
         gap: 4px;
     }
@@ -2525,7 +2525,7 @@ body {
     }
 
     .carousel-dots {
-        bottom: 45px;
+        bottom: 85px;
         padding: 6px 12px;
         gap: 6px;
     }
@@ -2536,7 +2536,7 @@ body {
     }
 
     .scroll-down {
-        bottom: 10px;
+        bottom: 45px;
     }
 
     .scroll-down span {
