@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Lazy load images for performance
     lazyLoadImages();
 
-    // Hero CTA Button - Scroll to contact form
-    const heroCta = document.querySelector('.hero-cta-btn');
-    if (heroCta) {
-        heroCta.addEventListener('click', function(e) {
+    // Hero CTA Buttons - Scroll to contact form (desktop and mobile)
+    const heroCtaButtons = document.querySelectorAll('.hero-cta-btn, .hero-cta-btn-mobile');
+    heroCtaButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
             e.preventDefault();
             const contactForm = document.getElementById('contact-form');
             if (contactForm) {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-    }
+    });
 
     // ========================================
     // PREMIUM HEADER - Scroll Effect
@@ -122,8 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Smooth scrolling for navigation links (only for same-page anchors)
-    // Exclude .hero-cta-btn which has its own handler with correct offset calculation
-    document.querySelectorAll('a[href^="#"]:not(.hero-cta-btn)').forEach(anchor => {
+    // Exclude hero CTA buttons which have their own handler with correct offset calculation
+    document.querySelectorAll('a[href^="#"]:not(.hero-cta-btn):not(.hero-cta-btn-mobile)').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             // Only prevent default and smooth scroll if the target exists on current page
