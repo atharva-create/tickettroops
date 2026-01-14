@@ -181,12 +181,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const tabContents = document.querySelectorAll('.tab-content');
     const categoryDropdown = document.getElementById('category-dropdown');
     const typeDropdown = document.getElementById('type-dropdown');
+    const monthDropdown = document.getElementById('month-dropdown');
 
     // Filter options for each category
     const typeOptions = {
         sports: ['All Types', 'Cricket', 'Football', 'Tennis', 'Formula 1'],
         music: ['All Types', 'Concerts', 'Festivals', 'Live Shows']
     };
+
+    // Month abbreviation to index mapping
+    const monthMap = {
+        'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3,
+        'May': 4, 'Jun': 5, 'Jul': 6, 'Aug': 7,
+        'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+    };
+
+    // Current filter states
+    let currentTypeFilter = 'all';
+    let currentMonthFilter = 'all';
 
     // Custom Dropdown Toggle
     function initCustomDropdowns() {
@@ -231,6 +243,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (dropdown.id === 'type-dropdown') {
                         filterEvents(value);
                     }
+
+                    // Handle month filter change
+                    if (dropdown.id === 'month-dropdown') {
+                        filterByMonth(value);
+                    }
                 });
             });
         });
@@ -250,6 +267,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update type dropdown options
         updateTypeOptions(category);
+
+        // Reset month filter
+        if (monthDropdown) {
+            const selectedSpan = monthDropdown.querySelector('.dropdown-selected span');
+            const options = monthDropdown.querySelectorAll('.dropdown-option');
+            selectedSpan.textContent = 'All Months';
+            options.forEach(opt => {
+                opt.classList.remove('active');
+                if (opt.dataset.value === 'all') opt.classList.add('active');
+            });
+            currentMonthFilter = 'all';
+        }
     }
 
     // Update type dropdown options based on category
@@ -284,24 +313,79 @@ document.addEventListener('DOMContentLoaded', function() {
         filterEvents('all');
     }
 
-    // Filter table rows based on selected type
-    function filterEvents(selectedType) {
+    // Parse event date string and return start/end month indices
+    function parseEventDateRange(dateText) {
+        const text = dateText.trim();
+
+        // Cross-year: "Aug 2025 - May 2026"
+        const crossYearMatch = text.match(/^([A-Z][a-z]{2})\s+\d{4}\s*-\s*([A-Z][a-z]{2})\s+\d{4}$/);
+        if (crossYearMatch) {
+            return { startMonth: monthMap[crossYearMatch[1]], endMonth: monthMap[crossYearMatch[2]], crossYear: true };
+        }
+
+        // Same-year range: "Mar - May 2026"
+        const rangeMatch = text.match(/^([A-Z][a-z]{2})\s*-\s*([A-Z][a-z]{2})\s+\d{4}$/);
+        if (rangeMatch) {
+            return { startMonth: monthMap[rangeMatch[1]], endMonth: monthMap[rangeMatch[2]], crossYear: false };
+        }
+
+        // Single month: "Jun 2026"
+        const singleMatch = text.match(/^([A-Z][a-z]{2})\s+\d{4}$/);
+        if (singleMatch) {
+            const month = monthMap[singleMatch[1]];
+            return { startMonth: month, endMonth: month, crossYear: false };
+        }
+
+        // Fallback: show event if date format is unrecognized
+        return { startMonth: 0, endMonth: 11, crossYear: true };
+    }
+
+    // Check if a selected month falls within an event's date range
+    function isMonthInRange(selectedMonth, dateRange) {
+        const { startMonth, endMonth, crossYear } = dateRange;
+        if (crossYear) {
+            return selectedMonth >= startMonth || selectedMonth <= endMonth;
+        }
+        return selectedMonth >= startMonth && selectedMonth <= endMonth;
+    }
+
+    // Apply combined type and month filters
+    function applyFilters() {
         const activeTab = document.querySelector('.tab-content.active');
         if (!activeTab) return;
 
         const rows = activeTab.querySelectorAll('tbody tr');
         rows.forEach(row => {
-            if (selectedType === 'all') {
-                row.style.display = '';
-            } else {
+            let showByType = true;
+            let showByMonth = true;
+
+            if (currentTypeFilter !== 'all') {
                 const typeCell = row.querySelector('.event-type');
-                if (typeCell && typeCell.textContent.trim() === selectedType) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
+                showByType = typeCell && typeCell.textContent.trim() === currentTypeFilter;
+            }
+
+            if (currentMonthFilter !== 'all') {
+                const monthCell = row.querySelectorAll('td')[2];
+                if (monthCell) {
+                    const dateRange = parseEventDateRange(monthCell.textContent);
+                    showByMonth = isMonthInRange(monthMap[currentMonthFilter], dateRange);
                 }
             }
+
+            row.style.display = (showByType && showByMonth) ? '' : 'none';
         });
+    }
+
+    // Filter by type
+    function filterEvents(selectedType) {
+        currentTypeFilter = selectedType;
+        applyFilters();
+    }
+
+    // Filter by month
+    function filterByMonth(selectedMonth) {
+        currentMonthFilter = selectedMonth;
+        applyFilters();
     }
 
     // Initialize custom dropdowns
