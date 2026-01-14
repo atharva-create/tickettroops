@@ -2293,6 +2293,10 @@ body {
         min-width: 260px;
     }
 
+    .section-header {
+        margin-bottom: 30px;
+    }
+
     .category-header {
         margin-bottom: 20px;
     }
@@ -2606,6 +2610,10 @@ body {
     .experience-card {
         flex: 0 0 240px;
         min-width: 240px;
+    }
+
+    .section-header {
+        margin-bottom: 20px;
     }
 
     .category-header {
