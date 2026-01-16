@@ -892,14 +892,17 @@ div.experience-card:hover .card-image img {
 
 /* Card Content */
 .experience-card .card-content {
-    padding: 20px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .experience-card .card-content h4 {
     color: var(--tt-text-white);
     font-size: 1.15rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin: 0;
 }
 
 .experience-card .card-content p {
@@ -912,16 +915,16 @@ div.experience-card:hover .card-image img {
 /* Card Action Text */
 .card-action {
     color: #E5B82A;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-top: 4px;
+    gap: 5px;
+    white-space: nowrap;
 }
 
 .card-action i {
-    font-size: 10px;
+    font-size: 9px;
     transition: transform 0.3s ease;
 }
 
