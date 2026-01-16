@@ -315,24 +315,45 @@ document.addEventListener('DOMContentLoaded', function() {
                 const monthCell = row.querySelectorAll('td')[2];
                 if (monthCell) {
                     const cellText = monthCell.textContent.trim();
-                    // Extract month abbreviation from filter (e.g., "Apr" from "Apr 2026")
-                    const filterMonth = currentMonthFilter.split(' ')[0];
+                    // Extract month and year from filter (e.g., "Apr" and "2026" from "Apr 2026")
+                    const filterParts = currentMonthFilter.split(' ');
+                    const filterMonth = filterParts[0];
+                    const filterYear = parseInt(filterParts[1]);
 
-                    // Month abbreviation to number mapping
                     const monthOrder = { 'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
                                          'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12 };
+                    const filterMonthNum = monthOrder[filterMonth];
+                    const filterAbsolute = filterYear * 12 + filterMonthNum;
 
-                    // Check if it's a date range (e.g., "Mar - May 2026")
-                    const rangeMatch = cellText.match(/^(\w{3})\s*-\s*(\w{3})\s+\d{4}$/);
-                    if (rangeMatch) {
-                        const startMonth = monthOrder[rangeMatch[1]];
-                        const endMonth = monthOrder[rangeMatch[2]];
-                        const filterMonthNum = monthOrder[filterMonth];
-                        // Check if filter month is within the range (inclusive)
-                        showByMonth = filterMonthNum >= startMonth && filterMonthNum <= endMonth;
+                    // Pattern 1: Cross-year range (e.g., "Aug 2025 - May 2026")
+                    const crossYearMatch = cellText.match(/^(\w{3})\s+(\d{4})\s*-\s*(\w{3})\s+(\d{4})$/);
+                    // Pattern 2: Same-year range (e.g., "Mar - May 2026")
+                    const sameYearMatch = cellText.match(/^(\w{3})\s*-\s*(\w{3})\s+(\d{4})$/);
+                    // Pattern 3: Single month (e.g., "Jan 2026")
+                    const singleMatch = cellText.match(/^(\w{3})\s+(\d{4})$/);
+
+                    if (crossYearMatch) {
+                        const startMonth = monthOrder[crossYearMatch[1]];
+                        const startYear = parseInt(crossYearMatch[2]);
+                        const endMonth = monthOrder[crossYearMatch[3]];
+                        const endYear = parseInt(crossYearMatch[4]);
+                        const startAbsolute = startYear * 12 + startMonth;
+                        const endAbsolute = endYear * 12 + endMonth;
+                        showByMonth = filterAbsolute >= startAbsolute && filterAbsolute <= endAbsolute;
+                    } else if (sameYearMatch) {
+                        const startMonth = monthOrder[sameYearMatch[1]];
+                        const endMonth = monthOrder[sameYearMatch[2]];
+                        const year = parseInt(sameYearMatch[3]);
+                        const startAbsolute = year * 12 + startMonth;
+                        const endAbsolute = year * 12 + endMonth;
+                        showByMonth = filterAbsolute >= startAbsolute && filterAbsolute <= endAbsolute;
+                    } else if (singleMatch) {
+                        const eventMonth = monthOrder[singleMatch[1]];
+                        const eventYear = parseInt(singleMatch[2]);
+                        showByMonth = (filterMonthNum === eventMonth && filterYear === eventYear);
                     } else {
-                        // Single month - check if it matches
-                        showByMonth = cellText.includes(currentMonthFilter) || cellText.startsWith(filterMonth);
+                        // Fallback for any other format
+                        showByMonth = cellText.includes(currentMonthFilter);
                     }
                 }
             }
