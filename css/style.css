@@ -1126,15 +1126,7 @@ body {
 }
 
 .events-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(46, 35, 93, 0.6) 0%,
-        rgba(46, 35, 93, 0.4) 40%,
-        rgba(46, 35, 93, 0.5) 70%,
-        rgba(46, 35, 93, 0.9) 100%
-    );
+    display: none;
 }
 
 .events-hero-content {
@@ -1155,16 +1147,12 @@ body {
 }
 
 .events-hero-title {
-    color: #FFFFFF;
+    color: #E5B82A;
     font-size: 52px;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 20px;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-}
-
-.events-hero-title span {
-    color: #E5B82A;
 }
 
 .events-hero-subtitle {
