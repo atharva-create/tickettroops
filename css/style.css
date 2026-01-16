@@ -491,6 +491,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
 }
 
 /* Hero Overlay Gradient - Light top tint only */
@@ -837,8 +838,8 @@ body {
 
 /* Experience Card */
 .experience-card {
-    flex: 0 0 320px;
-    min-width: 320px;
+    flex: 1 1 0;
+    min-width: 280px;
     background: #392a70;
     border-radius: 16px;
     overflow: hidden;
