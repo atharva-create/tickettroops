@@ -510,6 +510,14 @@ document.addEventListener('DOMContentLoaded', function() {
     //     });
     // });
 
+    // Mobile: Redirect to contact page when clicking on event rows
+    document.addEventListener('click', function(e) {
+        const row = e.target.closest('.events-table tbody tr');
+        if (row && window.matchMedia('(max-width: 768px)').matches) {
+            e.preventDefault();
+            window.location.href = 'contact.html';
+        }
+    });
 
     // Add hover effect to feature cards
     const featureCards = document.querySelectorAll('.feature-card');
