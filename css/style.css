@@ -2023,7 +2023,7 @@ body {
 .feature-icon svg {
     width: 48px;
     height: 48px;
-    color: var(--tt-gold);
+    color: #2a1e5b;
 }
 
 .feature-item h3 {
