@@ -875,21 +875,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Disable hover effects for non-clickable cards (div instead of a) */
-div.experience-card {
-    cursor: default;
-}
-
-div.experience-card:hover {
-    transform: none;
-    border-color: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-div.experience-card:hover .card-image img {
-    transform: none;
-}
-
 /* Card Content */
 .experience-card .card-content {
     padding: 15px 20px;
