@@ -950,6 +950,17 @@ div.experience-card:hover .card-image img {
     letter-spacing: 0.5px;
 }
 
+/* Desktop: Full-width cards */
+@media (min-width: 769px) {
+    .experience-card {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .experience-grid {
+        overflow-x: visible;
+    }
+}
 
 /* Cards in all carousels use same width */
 
@@ -2408,15 +2419,14 @@ div.experience-card:hover .card-image img {
 
     /* Show mobile CTA below carousel */
     .mobile-hero-cta {
-        display: flex;
-        justify-content: flex-end;
+        display: block;
         padding: 15px 20px;
         background: #2e235d;
     }
 
     .hero-cta-btn-mobile {
-        display: inline-block;
-        width: auto;
+        display: block;
+        width: 100%;
         background: #E5B82A;
         color: #1a1a2e;
         padding: 12px 16px;
