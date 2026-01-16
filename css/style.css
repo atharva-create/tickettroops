@@ -2264,14 +2264,14 @@ body {
 }
 
 .footer-links {
-    padding-left: 40px;
+    text-align: right;
 }
 
 .footer-copyright {
     text-align: center;
-    padding-top: 25px;
-    margin-top: 25px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 25px;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-copyright p {
