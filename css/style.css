@@ -2264,7 +2264,7 @@ body {
 }
 
 .footer-links {
-    text-align: right;
+    padding-left: 60px;
 }
 
 .footer-copyright {
