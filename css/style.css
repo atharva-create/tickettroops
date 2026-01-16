@@ -1833,7 +1833,7 @@ body {
 }
 
 .contact {
-    padding: 80px 0 30px;
+    padding: 80px 0 10px;
     background: #2e235d;
     position: relative;
 }
@@ -2253,7 +2253,7 @@ body {
     }
 
     .contact {
-        padding: 40px 0 20px;
+        padding: 40px 0 5px;
     }
 
     .footer {
