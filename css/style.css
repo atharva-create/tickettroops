@@ -2408,14 +2408,15 @@ div.experience-card:hover .card-image img {
 
     /* Show mobile CTA below carousel */
     .mobile-hero-cta {
-        display: block;
+        display: flex;
+        justify-content: flex-end;
         padding: 15px 20px;
         background: #2e235d;
     }
 
     .hero-cta-btn-mobile {
-        display: block;
-        width: 100%;
+        display: inline-block;
+        width: auto;
         background: #E5B82A;
         color: #1a1a2e;
         padding: 12px 16px;
