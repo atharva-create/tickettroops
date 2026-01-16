@@ -2401,8 +2401,8 @@ div.experience-card:hover .card-image img {
     }
 
     .experience-card {
-        flex: 0 0 300px;
-        min-width: 300px;
+        flex: 0 0 80vw;
+        min-width: 80vw;
     }
 
     .section-header {
@@ -2435,7 +2435,7 @@ div.experience-card:hover .card-image img {
     }
 
     .experience-card .card-image {
-        height: 180px;
+        height: 130px;
     }
 
     .clients-grid,
@@ -2721,8 +2721,8 @@ div.experience-card:hover .card-image img {
     }
 
     .experience-card {
-        flex: 0 0 280px;
-        min-width: 280px;
+        flex: 0 0 85vw;
+        min-width: 85vw;
     }
 
     .section-header {
@@ -2756,7 +2756,7 @@ div.experience-card:hover .card-image img {
     }
 
     .experience-card .card-image {
-        height: 170px;
+        height: 120px;
     }
 
     /* Small Mobile Header */
