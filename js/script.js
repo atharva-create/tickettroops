@@ -170,11 +170,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Filter options for each category
     const typeOptions = {
+        all: ['All Types', 'Cricket', 'Football', 'Tennis', 'Formula 1', 'Concerts', 'Festivals', 'Live Shows'],
         sports: ['All Types', 'Cricket', 'Football', 'Tennis', 'Formula 1'],
         music: ['All Types', 'Concerts', 'Festivals', 'Live Shows']
     };
 
     // Current filter states
+    let currentCategory = 'all';
     let currentTypeFilter = 'all';
     let currentMonthFilter = 'all';
     let currentLocationFilter = 'all';
@@ -244,6 +246,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Switch category
     function switchCategory(category) {
+        currentCategory = category;
+
         // Update tab contents
         tabContents.forEach(content => content.classList.remove('active'));
         const targetTab = document.getElementById(`${category}-tab`);
