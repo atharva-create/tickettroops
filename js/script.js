@@ -314,8 +314,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentMonthFilter !== 'all') {
                 const monthCell = row.querySelectorAll('td')[2];
                 if (monthCell) {
-                    // Simple check: does the date text contain the month abbreviation?
-                    showByMonth = monthCell.textContent.includes(currentMonthFilter);
+                    const cellText = monthCell.textContent.trim();
+                    // Extract month abbreviation from filter (e.g., "Jun" from "Jun 2026")
+                    const monthAbbrev = currentMonthFilter.split(' ')[0];
+                    // Check if cell contains exact filter OR starts with the month (for date ranges like "Jun - Jul 2026")
+                    showByMonth = cellText.includes(currentMonthFilter) || cellText.startsWith(monthAbbrev);
                 }
             }
 
