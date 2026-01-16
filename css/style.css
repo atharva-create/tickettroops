@@ -824,9 +824,10 @@ body {
 /* Experience Grid - Now horizontal scroll */
 .experience-grid {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     overflow-x: auto;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding: 10px 0;
@@ -838,8 +839,9 @@ body {
 
 /* Experience Card */
 .experience-card {
-    flex: 1 1 0;
-    min-width: 280px;
+    flex: 0 0 250px;
+    min-width: 250px;
+    scroll-snap-align: start;
     background: #392a70;
     border-radius: 16px;
     overflow: hidden;
@@ -2075,8 +2077,16 @@ div.experience-card:hover .card-image img {
 }
 
 @media (max-width: 600px) {
+    .upcoming-events {
+        padding-bottom: 20px;
+    }
+
+    .view-all-btn {
+        margin-top: 20px;
+    }
+
     .features-section {
-        padding: 10px 0 20px;
+        padding: 5px 0 15px;
     }
 
     .features-grid {
@@ -2200,8 +2210,8 @@ div.experience-card:hover .card-image img {
 
 @media (max-width: 1024px) {
     .experience-card {
-        flex: 0 0 280px;
-        min-width: 280px;
+        flex: 0 0 250px;
+        min-width: 250px;
     }
 }
 
@@ -2400,9 +2410,13 @@ div.experience-card:hover .card-image img {
         transform: translateY(-2px);
     }
 
+    .experience-grid {
+        gap: 15px;
+    }
+
     .experience-card {
-        flex: 0 0 80vw;
-        min-width: 80vw;
+        flex: 0 0 75vw;
+        min-width: 75vw;
     }
 
     .section-header {
@@ -2719,9 +2733,13 @@ div.experience-card:hover .card-image img {
         font-size: 13px;
     }
 
+    .experience-grid {
+        gap: 15px;
+    }
+
     .experience-card {
-        flex: 0 0 85vw;
-        min-width: 85vw;
+        flex: 0 0 80vw;
+        min-width: 80vw;
     }
 
     .section-header {

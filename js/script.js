@@ -625,7 +625,7 @@ function initExperienceCarousels() {
 
         if (!grid || !prevBtn || !nextBtn) return;
 
-        const cardWidth = 320 + 25; // card width + gap
+        const cardWidth = 250 + 20; // card width + gap
 
         function updateButtonStates() {
             const scrollLeft = grid.scrollLeft;
