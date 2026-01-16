@@ -2257,14 +2257,14 @@ body {
 .footer-middle h4 {
     margin-bottom: 20px;
     color: var(--tt-gold);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 .footer-links {
-    text-align: right;
+    padding-left: 40px;
 }
 
 .footer-copyright {
