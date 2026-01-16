@@ -2002,7 +2002,7 @@ body {
 /* Features Section - Above Footer */
 .features-section {
     background: #2e235d;
-    padding: 60px 0;
+    padding: 30px 0;
 }
 
 .features-grid {
@@ -2013,11 +2013,11 @@ body {
 
 .feature-item {
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .feature-icon {
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .feature-icon svg {
@@ -2030,7 +2030,7 @@ body {
     color: var(--tt-gold);
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .feature-item p {
@@ -2048,12 +2048,12 @@ body {
 
 @media (max-width: 600px) {
     .features-section {
-        padding: 40px 0;
+        padding: 25px 0;
     }
 
     .features-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 20px;
     }
 }
 
