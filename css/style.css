@@ -2461,7 +2461,11 @@ body {
     }
 
     .section-divider {
-        padding: 0 0 15px;
+        padding: 0 0 10px;
+    }
+
+    .experiences {
+        padding-top: 15px;
     }
 
     /* Hero & Carousel Mobile Styles */
