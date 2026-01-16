@@ -2001,7 +2001,7 @@ body {
 
 /* Features Section - Above Footer */
 .features-section {
-    background: #f8f8f8;
+    background: #2e235d;
     padding: 60px 0;
 }
 
@@ -2023,7 +2023,7 @@ body {
 .feature-icon svg {
     width: 48px;
     height: 48px;
-    color: #2e235d;
+    color: var(--tt-gold);
 }
 
 .feature-item h3 {
@@ -2034,7 +2034,7 @@ body {
 }
 
 .feature-item p {
-    color: #555;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 14px;
     line-height: 1.6;
 }
