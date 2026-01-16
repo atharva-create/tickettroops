@@ -1105,7 +1105,7 @@ body {
    ---------------------------------------- */
 .events-hero {
     position: relative;
-    min-height: 74vh;
+    min-height: 66vh;
     display: flex;
     align-items: center;
     justify-content: center;
