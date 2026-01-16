@@ -670,7 +670,7 @@ body {
 /* Hero CTA Button */
 .hero-cta-btn {
     position: absolute;
-    bottom: 140px;
+    bottom: 100px;
     right: 200px;
     display: inline-block;
     background: #E5B82A;
@@ -2221,9 +2221,23 @@ body {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 50px;
     margin-bottom: 30px;
+}
+
+.footer-middle {
+    text-align: center;
+}
+
+.footer-middle p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.footer-middle p strong {
+    color: var(--tt-gold);
 }
 
 .footer-brand h2 {

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Image Safe Zone Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #1a1a2e;
+            color: white;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #E5B82A;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #888;
+        }
+
+        .guide-container {
+            max-width: 100%;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+
+        .canvas-wrapper {
+            position: relative;
+            width: 1920px;
+            height: 1080px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #2e235d 0%, #1a1a2e 100%);
+            border: 2px solid #444;
+        }
+
+        /* Danger zones - where text gets hidden */
+        .danger-zone {
+            position: absolute;
+            background: rgba(255, 0, 0, 0.3);
+            border: 2px dashed #ff4444;
+        }
+
+        .danger-top {
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 250px;
+        }
+
+        .danger-bottom {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+        }
+
+        .danger-left {
+            top: 250px;
+            left: 0;
+            width: 100px;
+            height: 530px;
+        }
+
+        .danger-right {
+            top: 250px;
+            right: 0;
+            width: 100px;
+            height: 530px;
+        }
+
+        /* Safe zone */
+        .safe-zone {
+            position: absolute;
+            top: 250px;
+            left: 100px;
+            width: 1720px;
+            height: 530px;
+            border: 4px solid #00ff00;
+            background: rgba(0, 255, 0, 0.1);
+        }
+
+        /* Labels */
+        .label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .label-top {
+            top: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ff4444;
+        }
+
+        .label-bottom {
+            bottom: 130px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ff4444;
+        }
+
+        .label-safe {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #00ff00;
+            font-size: 24px;
+            padding: 16px 32px;
+        }
+
+        /* Dimension markers */
+        .dimension {
+            position: absolute;
+            color: #E5B82A;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .dim-top-height {
+            top: 125px;
+            right: 20px;
+        }
+
+        .dim-bottom-height {
+            bottom: 145px;
+            right: 20px;
+        }
+
+        .dim-safe-width {
+            top: 265px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dim-safe-height {
+            top: 50%;
+            left: 115px;
+            transform: translateY(-50%);
+        }
+
+        .dim-full-width {
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+        }
+
+        .dim-full-height {
+            top: 50%;
+            left: -60px;
+            transform: translateY(-50%) rotate(-90deg);
+            color: white;
+        }
+
+        /* UI element representations */
+        .navbar-rep {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(46, 35, 93, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+        }
+
+        .navbar-rep .logo {
+            color: #E5B82A;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .navbar-rep .nav-items {
+            display: flex;
+            gap: 30px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .bottom-elements {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to top, rgba(46, 35, 93, 0.95), transparent);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 20px;
+        }
+
+        .dots {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .dot.active {
+            background: #E5B82A;
+        }
+
+        .scroll-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+        }
+
+        /* Legend */
+        .legend {
+            max-width: 1920px;
+            margin: 40px auto 0;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .legend-color.danger {
+            background: rgba(255, 0, 0, 0.3);
+            border: 2px dashed #ff4444;
+        }
+
+        .legend-color.safe {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+        }
+
+        /* Info section */
+        .info {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .info h2 {
+            color: #E5B82A;
+            margin-bottom: 20px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .info-card h3 {
+            color: #00ff00;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .info-card.mobile h3 {
+            color: #ff9900;
+        }
+
+        .info-card ul {
+            list-style: none;
+            color: #ccc;
+        }
+
+        .info-card li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .info-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #E5B82A;
+        }
+
+        .info-card strong {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Carousel Image Safe Zone Guide</h1>
+    <p class="subtitle">Place all important text within the green safe zone to ensure visibility across all devices</p>
+
+    <div class="guide-container">
+        <div class="canvas-wrapper">
+            <!-- Danger zones -->
+            <div class="danger-zone danger-top"></div>
+            <div class="danger-zone danger-bottom"></div>
+            <div class="danger-zone danger-left"></div>
+            <div class="danger-zone danger-right"></div>
+
+            <!-- Safe zone -->
+            <div class="safe-zone"></div>
+
+            <!-- Labels -->
+            <div class="label label-top">NAVBAR OVERLAY ZONE - Text hidden here</div>
+            <div class="label label-bottom">GRADIENT + CONTROLS - Text hidden here</div>
+            <div class="label label-safe">SAFE ZONE FOR TEXT<br><span style="font-size: 14px; font-weight: normal;">1720 x 530px</span></div>
+
+            <!-- Dimensions -->
+            <div class="dimension dim-top-height">250px</div>
+            <div class="dimension dim-bottom-height">300px</div>
+            <div class="dimension dim-safe-width">1720px</div>
+            <div class="dimension dim-safe-height">530px</div>
+            <div class="dimension dim-full-width">1920px (full width)</div>
+            <div class="dimension dim-full-height">1080px</div>
+
+            <!-- UI Representations -->
+            <div class="navbar-rep">
+                <div class="logo">TICKET TROOPS</div>
+                <div class="nav-items">
+                    <span>HOME</span>
+                    <span>ABOUT US</span>
+                    <span>EVENTS</span>
+                    <span>CALL US</span>
+                </div>
+            </div>
+
+            <div class="bottom-elements">
+                <div class="dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="scroll-text">SCROLL DOWN</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color danger"></div>
+            <span>Danger Zone - Text will be hidden/cut off</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color safe"></div>
+            <span>Safe Zone - Text will be fully visible</span>
+        </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="info">
+        <h2>Quick Reference</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Desktop Safe Zone (1920x1080)</h3>
+                <ul>
+                    <li><strong>Top margin:</strong> 250px from top</li>
+                    <li><strong>Bottom margin:</strong> 300px from bottom</li>
+                    <li><strong>Side margins:</strong> 100px each</li>
+                    <li><strong>Safe area:</strong> 1720 x 530px</li>
+                    <li><strong>Safe area starts:</strong> x=100, y=250</li>
+                </ul>
+            </div>
+            <div class="info-card mobile">
+                <h3>Mobile Considerations</h3>
+                <ul>
+                    <li><strong>Hero height:</strong> 45-60vh (much shorter!)</li>
+                    <li><strong>Visible area:</strong> Only ~185-320px tall</li>
+                    <li><strong>Recommendation:</strong> Keep text in top 40% of safe zone</li>
+                    <li><strong>Best practice:</strong> Center text vertically in safe zone</li>
+                    <li><strong>Avoid:</strong> Text near bottom of safe zone</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Keep logo/branding in center of safe zone</li>
+                    <li>Use large, readable fonts (min 48px for headlines)</li>
+                    <li>Add text shadow for better contrast</li>
+                    <li>Test on mobile viewport before finalizing</li>
+                    <li>Consider dark gradient behind text</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
