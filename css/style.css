@@ -2682,8 +2682,15 @@ div.experience-card:hover .card-image img {
         margin-right: 4px;
     }
 
-    /* Force line break after type tag */
-    .events-table td:nth-child(4)::after {
+    /* Line 1: Enquire Now - sits next to type tag, pushed to right */
+    .events-table td:nth-child(5) {
+        order: 2;
+        flex-shrink: 0;
+        margin-left: auto;
+    }
+
+    /* Force line break after Enquire Now (not after type tag) */
+    .events-table td:nth-child(5)::after {
         content: '';
         flex-basis: 100%;
         height: 0;
