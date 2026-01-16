@@ -909,6 +909,26 @@ div.experience-card:hover .card-image img {
     margin-bottom: 15px;
 }
 
+/* Card Action Text */
+.card-action {
+    color: #E5B82A;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.card-action i {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+.experience-card:hover .card-action i {
+    transform: translateX(4px);
+}
+
 /* Card Footer */
 .experience-card .card-footer {
     display: flex;
