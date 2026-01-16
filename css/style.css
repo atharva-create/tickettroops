@@ -2002,7 +2002,7 @@ body {
 /* Features Section - Above Footer */
 .features-section {
     background: #2e235d;
-    padding: 30px 0;
+    padding: 15px 0 30px;
 }
 
 .features-grid {
@@ -2048,7 +2048,7 @@ body {
 
 @media (max-width: 600px) {
     .features-section {
-        padding: 25px 0;
+        padding: 10px 0 20px;
     }
 
     .features-grid {
