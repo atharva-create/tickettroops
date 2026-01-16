@@ -900,8 +900,9 @@ body {
 /* Card Action Text */
 .card-action {
     color: #E5B82A;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 600;
+    font-style: italic;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -909,7 +910,8 @@ body {
 }
 
 .card-action i {
-    font-size: 9px;
+    font-size: 12px;
+    font-style: normal;
     transition: transform 0.3s ease;
 }
 
@@ -2251,13 +2253,27 @@ body {
 }
 
 .footer-links h4,
-.footer-social h4 {
+.footer-social h4,
+.footer-middle h4 {
     margin-bottom: 20px;
     color: var(--tt-gold);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
+}
+
+.footer-copyright {
+    text-align: center;
+    padding-top: 25px;
+    margin-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-copyright p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 11px;
+    letter-spacing: 0.5px;
 }
 
 .footer-links ul {
