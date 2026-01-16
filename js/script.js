@@ -315,10 +315,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 const monthCell = row.querySelectorAll('td')[2];
                 if (monthCell) {
                     const cellText = monthCell.textContent.trim();
-                    // Extract month abbreviation from filter (e.g., "Jun" from "Jun 2026")
-                    const monthAbbrev = currentMonthFilter.split(' ')[0];
-                    // Check if cell contains exact filter OR starts with the month (for date ranges like "Jun - Jul 2026")
-                    showByMonth = cellText.includes(currentMonthFilter) || cellText.startsWith(monthAbbrev);
+                    // Extract month abbreviation from filter (e.g., "Apr" from "Apr 2026")
+                    const filterMonth = currentMonthFilter.split(' ')[0];
+
+                    // Month abbreviation to number mapping
+                    const monthOrder = { 'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
+                                         'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12 };
+
+                    // Check if it's a date range (e.g., "Mar - May 2026")
+                    const rangeMatch = cellText.match(/^(\w{3})\s*-\s*(\w{3})\s+\d{4}$/);
+                    if (rangeMatch) {
+                        const startMonth = monthOrder[rangeMatch[1]];
+                        const endMonth = monthOrder[rangeMatch[2]];
+                        const filterMonthNum = monthOrder[filterMonth];
+                        // Check if filter month is within the range (inclusive)
+                        showByMonth = filterMonthNum >= startMonth && filterMonthNum <= endMonth;
+                    } else {
+                        // Single month - check if it matches
+                        showByMonth = cellText.includes(currentMonthFilter) || cellText.startsWith(filterMonth);
+                    }
                 }
             }
 
