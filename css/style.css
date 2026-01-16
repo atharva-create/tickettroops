@@ -2460,6 +2460,10 @@ body {
         padding: 40px 0 20px;
     }
 
+    .section-divider {
+        padding: 0 0 15px;
+    }
+
     /* Hero & Carousel Mobile Styles */
     .hero {
         height: 70vw;
