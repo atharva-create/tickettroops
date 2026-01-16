@@ -182,6 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const categoryDropdown = document.getElementById('category-dropdown');
     const typeDropdown = document.getElementById('type-dropdown');
     const monthDropdown = document.getElementById('month-dropdown');
+    const locationDropdown = document.getElementById('location-dropdown');
 
     // Filter options for each category
     const typeOptions = {
@@ -192,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Current filter states
     let currentTypeFilter = 'all';
     let currentMonthFilter = 'all';
+    let currentLocationFilter = 'all';
 
     // Custom Dropdown Toggle
     function initCustomDropdowns() {
@@ -241,6 +243,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (dropdown.id === 'month-dropdown') {
                         filterByMonth(value);
                     }
+
+                    // Handle location filter change
+                    if (dropdown.id === 'location-dropdown') {
+                        filterByLocation(value);
+                    }
                 });
             });
         });
@@ -261,7 +268,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update type dropdown options
         updateTypeOptions(category);
 
-        // Re-apply month filter to new tab
+        // Reset and repopulate location filter for new category
+        resetLocationFilter();
+
+        // Re-apply filters to new tab
         applyFilters();
     }
 
@@ -297,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function() {
         filterEvents('all');
     }
 
-    // Apply combined type and month filters
+    // Apply combined type, month, and location filters
     function applyFilters() {
         const activeTab = document.querySelector('.tab-content.active');
         if (!activeTab) return;
@@ -306,6 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
         rows.forEach(row => {
             let showByType = true;
             let showByMonth = true;
+            let showByLocation = true;
 
             if (currentTypeFilter !== 'all') {
                 const typeCell = row.querySelector('.event-type');
@@ -320,7 +331,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            row.style.display = (showByType && showByMonth) ? '' : 'none';
+            if (currentLocationFilter !== 'all') {
+                const locationCell = row.querySelectorAll('td')[1];
+                showByLocation = locationCell && locationCell.textContent.trim() === currentLocationFilter;
+            }
+
+            row.style.display = (showByType && showByMonth && showByLocation) ? '' : 'none';
         });
     }
 
@@ -336,8 +352,84 @@ document.addEventListener('DOMContentLoaded', function() {
         applyFilters();
     }
 
+    // Filter by location
+    function filterByLocation(selectedLocation) {
+        currentLocationFilter = selectedLocation;
+        applyFilters();
+    }
+
+    // Populate location dropdown with unique locations from active table
+    function populateLocationOptions() {
+        if (!locationDropdown) return;
+
+        const activeTab = document.querySelector('.tab-content.active');
+        if (!activeTab) return;
+
+        const rows = activeTab.querySelectorAll('tbody tr');
+        const locations = new Set();
+
+        rows.forEach(row => {
+            const locationCell = row.querySelectorAll('td')[1];
+            if (locationCell) {
+                locations.add(locationCell.textContent.trim());
+            }
+        });
+
+        // Sort locations alphabetically
+        const sortedLocations = Array.from(locations).sort();
+
+        // Build dropdown options HTML
+        const optionsContainer = locationDropdown.querySelector('.dropdown-options');
+        optionsContainer.innerHTML = '<div class="dropdown-option active" data-value="all">All Locations</div>';
+
+        sortedLocations.forEach(location => {
+            const option = document.createElement('div');
+            option.className = 'dropdown-option';
+            option.dataset.value = location;
+            option.textContent = location;
+            option.addEventListener('click', () => {
+                // Update selected text
+                locationDropdown.querySelector('.dropdown-selected span').textContent = location;
+                // Update active state
+                optionsContainer.querySelectorAll('.dropdown-option').forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                // Close dropdown
+                locationDropdown.classList.remove('open');
+                // Apply filter
+                filterByLocation(location);
+            });
+            optionsContainer.appendChild(option);
+        });
+
+        // Add click handler for "All Locations" option
+        const allOption = optionsContainer.querySelector('[data-value="all"]');
+        allOption.addEventListener('click', () => {
+            locationDropdown.querySelector('.dropdown-selected span').textContent = 'All Locations';
+            optionsContainer.querySelectorAll('.dropdown-option').forEach(opt => opt.classList.remove('active'));
+            allOption.classList.add('active');
+            locationDropdown.classList.remove('open');
+            filterByLocation('all');
+        });
+    }
+
+    // Reset location filter (called when switching categories)
+    function resetLocationFilter() {
+        currentLocationFilter = 'all';
+        if (locationDropdown) {
+            locationDropdown.querySelector('.dropdown-selected span').textContent = 'All Locations';
+            const options = locationDropdown.querySelectorAll('.dropdown-option');
+            options.forEach(opt => opt.classList.remove('active'));
+            const allOption = locationDropdown.querySelector('[data-value="all"]');
+            if (allOption) allOption.classList.add('active');
+        }
+        populateLocationOptions();
+    }
+
     // Initialize custom dropdowns
     initCustomDropdowns();
+
+    // Populate location options on page load
+    populateLocationOptions();
 
     // Apply filters from URL parameters (for deep linking from homepage cards)
     applyFiltersFromURL();
