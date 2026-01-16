@@ -1429,6 +1429,13 @@ body {
     color: #f5d45a;
 }
 
+/* Hide Enquire Now on mobile */
+@media (max-width: 768px) {
+    .enquire-link {
+        display: none;
+    }
+}
+
 /* ========================================
    FLOATING WHATSAPP BUTTON
    ======================================== */
