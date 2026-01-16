@@ -2080,8 +2080,30 @@ div.experience-card:hover .card-image img {
     }
 
     .features-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .feature-icon {
+        background: transparent;
+        width: 40px;
+        height: 40px;
+        margin: 0 auto 10px;
+    }
+
+    .feature-icon svg {
+        width: 32px;
+        height: 32px;
+        color: var(--tt-gold);
+    }
+
+    .feature-item h3 {
+        font-size: 14px;
+    }
+
+    .feature-item p {
+        font-size: 12px;
+        line-height: 1.4;
     }
 }
 
@@ -2379,8 +2401,8 @@ div.experience-card:hover .card-image img {
     }
 
     .experience-card {
-        flex: 0 0 260px;
-        min-width: 260px;
+        flex: 0 0 300px;
+        min-width: 300px;
     }
 
     .section-header {
@@ -2413,7 +2435,7 @@ div.experience-card:hover .card-image img {
     }
 
     .experience-card .card-image {
-        height: 160px;
+        height: 180px;
     }
 
     .clients-grid,
@@ -2699,8 +2721,8 @@ div.experience-card:hover .card-image img {
     }
 
     .experience-card {
-        flex: 0 0 240px;
-        min-width: 240px;
+        flex: 0 0 280px;
+        min-width: 280px;
     }
 
     .section-header {
@@ -2734,7 +2756,7 @@ div.experience-card:hover .card-image img {
     }
 
     .experience-card .card-image {
-        height: 150px;
+        height: 170px;
     }
 
     /* Small Mobile Header */
