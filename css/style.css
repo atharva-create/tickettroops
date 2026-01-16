@@ -1044,7 +1044,7 @@ body {
 }
 
 .upcoming-events {
-    padding: 30px 0 80px;
+    padding: 30px 0 30px;
     background: #2e235d;
     position: relative;
 }
@@ -1419,10 +1419,14 @@ body {
     color: #f5d45a;
 }
 
-/* Hide Enquire Now on mobile */
+/* Hide Enquire Now on mobile and make rows clickable */
 @media (max-width: 768px) {
     .enquire-link {
         display: none;
+    }
+
+    .events-table tbody tr {
+        cursor: pointer;
     }
 }
 
@@ -3191,7 +3195,7 @@ body {
 
 .section-divider {
     background: #2e235d;
-    padding: 0;
+    padding: 0 0 30px;
     display: flex;
     justify-content: center;
 }
