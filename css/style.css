@@ -3120,6 +3120,11 @@ body {
     color: #E5B82A;
 }
 
+.pillar-icon i {
+    font-size: 28px;
+    color: #E5B82A;
+}
+
 .pillar:hover .pillar-icon {
     border-color: #E5B82A;
     background: rgba(229, 184, 42, 0.1);
