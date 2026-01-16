@@ -8,22 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Lazy load images for performance
     lazyLoadImages();
 
-    // Hero CTA Buttons - Scroll to contact form (desktop and mobile)
-    const heroCtaButtons = document.querySelectorAll('.hero-cta-btn, .hero-cta-btn-mobile');
-    heroCtaButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                const offsetTop = contactForm.getBoundingClientRect().top + window.pageYOffset - 100;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
     // ========================================
     // PREMIUM HEADER - Scroll Effect
     // ========================================
