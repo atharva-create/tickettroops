@@ -875,6 +875,10 @@ body {
     transform: scale(1.05);
 }
 
+.experience-card .card-image img.align-bottom {
+    object-position: bottom;
+}
+
 /* Card Content */
 .experience-card .card-content {
     padding: 15px 20px;
@@ -2466,6 +2470,10 @@ body {
 
     .experiences {
         padding-top: 10px;
+    }
+
+    .upcoming-events {
+        padding-top: 5px;
     }
 
     /* Hero & Carousel Mobile Styles */
