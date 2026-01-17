@@ -3152,6 +3152,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 14px;
+    width: 80px;
 }
 
 .pillar-icon {
@@ -3352,6 +3353,37 @@ body {
     height: 36px;
     color: #2e235d;
     opacity: 0.4;
+}
+
+/* Progressive icon sizing - larger icons for taller cards */
+.journey-card-v3[data-step="2"] .journey-icon {
+    width: 56px;
+    height: 56px;
+}
+
+.journey-card-v3[data-step="2"] .journey-icon svg {
+    width: 48px;
+    height: 48px;
+}
+
+.journey-card-v3[data-step="3"] .journey-icon {
+    width: 68px;
+    height: 68px;
+}
+
+.journey-card-v3[data-step="3"] .journey-icon svg {
+    width: 60px;
+    height: 60px;
+}
+
+.journey-card-v3[data-step="4"] .journey-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.journey-card-v3[data-step="4"] .journey-icon svg {
+    width: 72px;
+    height: 72px;
 }
 
 /* ----------------------------------------
