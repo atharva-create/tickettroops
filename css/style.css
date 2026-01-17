@@ -3188,6 +3188,7 @@ body {
     font-weight: 500;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 /* Hero Scroll Indicator */
@@ -3357,33 +3358,33 @@ body {
 
 /* Progressive icon sizing - larger icons for taller cards */
 .journey-card-v3[data-step="2"] .journey-icon {
-    width: 56px;
-    height: 56px;
+    width: 92px;
+    height: 92px;
 }
 
 .journey-card-v3[data-step="2"] .journey-icon svg {
-    width: 48px;
-    height: 48px;
+    width: 84px;
+    height: 84px;
 }
 
 .journey-card-v3[data-step="3"] .journey-icon {
-    width: 68px;
-    height: 68px;
+    width: 140px;
+    height: 140px;
 }
 
 .journey-card-v3[data-step="3"] .journey-icon svg {
-    width: 60px;
-    height: 60px;
+    width: 132px;
+    height: 132px;
 }
 
 .journey-card-v3[data-step="4"] .journey-icon {
-    width: 80px;
-    height: 80px;
+    width: 188px;
+    height: 188px;
 }
 
 .journey-card-v3[data-step="4"] .journey-icon svg {
-    width: 72px;
-    height: 72px;
+    width: 180px;
+    height: 180px;
 }
 
 /* ----------------------------------------
